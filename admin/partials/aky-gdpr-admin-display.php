@@ -34,7 +34,9 @@
             $rgpd_contact = $options['rgpd_contact'];
             $rgpd_analytics = $options['rgpd_analytics'];
             $rgpd_gta = $options['rgpd_gta'];
+            $rgpd_youtube = $options['rgpd_youtube'];
             $rgpd_id_client = $options['rgpd_id_client'];
+            $rgpd_front_logo = $options['rgpd_front_logo'];
 
 	    ?>
 
@@ -51,6 +53,7 @@
 
             <div class="<?php echo $this->plugin_name; ?>-custom-rgpd-page_link">
                 <label for="<?php echo $this->plugin_name; ?>-custom-rgpd-page_link">Lien de la page de confidentialité customisée</label>
+                <em class="aky-gdpr-field-info">( /ma-page )</em>
                 <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-custom-rgpd-page_link" name="<?php echo $this->plugin_name; ?>[rgpd_custom_rgpd_link]" value="<?php if(!empty($rgpd_custom_rgpd_link)) echo $rgpd_custom_rgpd_link; ?>"/>
             </div>
         </fieldset>
@@ -87,8 +90,20 @@
         </fieldset>
 
         <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-youtube">Youtube ?</label>
+            <em><?php echo htmlentities('<div class="youtube_player" videoID="video_id" width="width" height="height" theme="theme (dark | light)" rel="rel (1 | 0)" controls="controls (1 | 0)" showinfo="showinfo (1 | 0)" autoplay="autoplay (0 | 1)"></div>') ?></em>
+            <input type="checkbox" class="regular-text" id="<?php echo $this->plugin_name; ?>-youtube" name="<?php echo $this->plugin_name; ?>[rgpd_youtube]" value="activate_youtube" <?php if(!empty($rgpd_youtube)) echo 'checked'; ?>/>
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
             <label for="<?php echo $this->plugin_name; ?>-id">Identifiant client</label>
             <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-id" name="<?php echo $this->plugin_name; ?>[rgpd_id_client]" value="<?php if(!empty($rgpd_id_client)) echo $rgpd_id_client; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-front-logo">Affichage sur le site</label>
+            <em>Laisser vide pour le logo.</em>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-front-logo" name="<?php echo $this->plugin_name; ?>[rgpd_front_logo]" value="<?php if(!empty($rgpd_front_logo)) echo $rgpd_front_logo; ?>" />
         </fieldset>
 
         <?php submit_button('Enregistrer', 'primary','submit', TRUE); ?>

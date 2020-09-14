@@ -162,6 +162,16 @@
   border: none;
 }
 
+#tarteaucitronRoot #tarteaucitronPersonalize:hover,
+#tarteaucitronRoot #tarteaucitronCloseAlert:hover,
+#tarteaucitronRoot #tarteaucitronPrivacyUrl:hover,
+#tarteaucitronRoot #tarteaucitronAllAllowed:hover,
+#tarteaucitronRoot #tarteaucitronAllDenied:hover,
+#tarteaucitronRoot #tarteaucitron button:hover {
+  color: inherit;
+  background-color: transparent;
+}
+
 #tarteaucitronRoot #tarteaucitronDisclaimerAlert {
   display: block;
   margin-bottom: 1rem;
@@ -173,6 +183,7 @@
 }
 
 #tarteaucitronRoot #tarteaucitronPrivacyUrl {
+  color: inherit;
   background: none;
   text-decoration: underline;
 }
@@ -182,14 +193,17 @@
   position: fixed;
   bottom: -10rem;
   left: 1rem;
-  z-index: 1;
+  z-index: 10000;
   background: white;
-  border-radius: 100%;
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1);
-  height: 50px;
-  width: 50px;
-  padding: 1rem;
+  -webkit-transition: ease .3s;
+  -o-transition: ease .3s;
+  transition: ease .3s;
+}
+
+#akyCookiesGestion.aky-cookies-logo {
+  border-radius: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -199,13 +213,19 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-transition: ease .3s;
-  -o-transition: ease .3s;
-  transition: ease .3s;
+  height: 50px;
+  width: 50px;
+  padding: 1rem;
 }
 
-#akyCookiesGestion img {
+#akyCookiesGestion.aky-cookies-logo img {
   width: 25px;
+}
+
+#akyCookiesGestion.aky-cookies-text {
+  padding: .5rem 1rem;
+  border-radius: 15px;
+  font-weight: bold;
 }
 
 #akyCookiesGestion.active {
@@ -250,4 +270,8 @@
   #tarteaucitronRoot .tarteaucitronAlertBigTop {
     right: 1rem;
   }
+}
+
+#tarteaucitronBack {
+  display: none;
 }

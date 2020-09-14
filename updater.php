@@ -38,21 +38,43 @@ class Aky_Gdpr_Updater {
         $this->authorize_token = $token;
     }
 
-    private function get_repository_info()
-    {
-        if ( is_null( $this->github_response ) ) { // Do we have a response?
-            $request_uri = sprintf( 'https://api.github.com/repos/%s/%s/releases', $this->username, $this->repository ); // Build URI
-            if( $this->authorize_token ) { // Is there an access token?
-                $request_uri = add_query_arg( 'access_token', $this->authorize_token, $request_uri ); // Append it
+    private function get_repository_info() {
+        if (is_null($this->github_response)) {
+            $request_uri = sprintf('https://api.github.com/repos/%s/%s/releases', $this->username, $this->repository);
+
+            // Switch to HTTP Basic Authentication for GitHub API v3
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+                CURLOPT_URL => $request_uri,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => [
+                    "Authorization: token " . $this->authorize_token,
+                    "User-Agent: aky-gdpr"
+                ]
+            ]);
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+
+            $response = json_decode($response, true);
+
+            if (is_array($response)) {
+                $response = current($response);
             }
-            $response = json_decode( wp_remote_retrieve_body( wp_remote_get( $request_uri ) ), true ); // Get JSON and parse it
-            if( is_array( $response ) ) { // If it is an array
-                $response = current( $response ); // Get the first item
+
+            if ($this->authorize_token) {
+                $response['zipball_url'] = add_query_arg('access_token', $this->authorize_token, $response['zipball_url']);
             }
-            if( $this->authorize_token ) { // Is there an access token?
-                $response['zipball_url'] = add_query_arg( 'access_token', $this->authorize_token, $response['zipball_url'] ); // Update our zip url with token
-            }
-            $this->github_response = $response; // Set it to our property
+
+            $this->github_response = $response;
         }
     }
 

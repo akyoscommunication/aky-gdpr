@@ -102,7 +102,7 @@ class Aky_Gdpr_Public {
         add_action('wp_head', function () {
             $options = get_option('aky-gdpr');
             ?>
-            <script type="text/javascript" class="prout" defer onload>
+            <script type="text/javascript" class="aky-gdpr-script" defer onload>
                 jQuery(document).ready( function() {
                     tarteaucitron.init({
                         "privacyUrl": "<?php echo (!empty($options['rgpd_custom_rgpd_link']) && (!empty($options['rgpd_custom_rgpd_page'])) ? $options['rgpd_custom_rgpd_link'] : '/politique-de-conservation-de-donnees' ); ?>", /* Privacy policy url */

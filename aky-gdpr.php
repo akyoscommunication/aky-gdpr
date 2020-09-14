@@ -15,7 +15,7 @@
  * Plugin Name:       GDPR by Akyos
  * Plugin URI:        https://github.com/jpa-akyos/aky-gdpr
  * Description:       Plugin d'Akyos Communication ( RGPD, suivi ... )
- * Version:           1.0.6
+ * Version:           1.1.3
  * Author:            Akyos Communication <developpement@akyos.com>
  * Author URI:        https://akyos.com
  * Text Domain:       aky-gdpr
@@ -32,7 +32,8 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.6' );
+
+define( 'PLUGIN_NAME_VERSION', '1.1.3' );
 
 /**
  * The code that runs during plugin activation.
@@ -81,7 +82,7 @@ if( ! class_exists( 'Aky_Gdpr_Updater' ) ){
     require_once plugin_dir_path( __FILE__ ) . 'updater.php';
 }
 $updater = new Aky_Gdpr_Updater( __FILE__ );
-$updater->set_username( 'jpa-akyos' );
+$updater->set_username( 'akyoscommunication' );
 $updater->set_repository( 'aky-gdpr' );
-$updater->authorize( 'f5a9511254c260f3d7df2f37d1d2cf5d9164f9e4' ); // auth code goes here for private repos
+$updater->authorize( '71135cb1a5125b2b9d698d9670d380aab4c3c3bc' ); // auth code goes here for private repos
 $updater->initialize();

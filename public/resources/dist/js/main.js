@@ -81,9 +81,9 @@ module.exports = __webpack_require__(2);
 // // Import everything from autoload
 //import "./autoload/_tarteaucitron.js"
 
-jQuery(window).load(function () {
+jQuery(window).on('load', function () {
     jQuery(window).on('scroll', function () {
-        if (jQuery(window).scrollTop() + jQuery(window).height() == jQuery(document).height()) {
+        if (jQuery(window).scrollTop() + jQuery(window).height() > jQuery(document).height() - 100) {
             jQuery('#akyCookiesGestion').addClass('active');
         } else {
             jQuery('#akyCookiesGestion').removeClass('active');

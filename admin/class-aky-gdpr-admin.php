@@ -173,7 +173,9 @@ class Aky_Gdpr_Admin {
         $valid['rgpd_contact'] = $input['rgpd_contact'];
         $valid['rgpd_analytics'] = $input['rgpd_analytics'];
         $valid['rgpd_gta'] = $input['rgpd_gta'];
+        $valid['rgpd_youtube'] = $input['rgpd_youtube'];
         $valid['rgpd_id_client'] = $input['rgpd_id_client'];
+        $valid['rgpd_front_logo'] = $input['rgpd_front_logo'];
 
         if (empty($valid['rgpd_custom_rgpd_page'])) {
             include_once 'inc/aky-gdpr-pages.php';
