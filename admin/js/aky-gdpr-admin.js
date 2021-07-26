@@ -31,17 +31,32 @@
 
     $( window ).load(function() {
         const customRgpd = $('#aky-gdpr-custom-rgpd-page');
+        const linkPage = $('.aky-gdpr-custom-rgpd-page_link');
 
         if (!(customRgpd.prop('checked'))) {
-            $('.aky-gdpr-custom-rgpd-page_link').hide();
+            linkPage.hide();
         }
         customRgpd.on('change', function () {
             if ($(this).prop('checked')) {
-                $('.aky-gdpr-custom-rgpd-page_link').show();
+                linkPage.show();
             } else {
-                $('.aky-gdpr-custom-rgpd-page_link').hide();
+                linkPage.hide();
             }
         });
+	
+	    const selectService = $('#aky-gdpr-rgpd_service_type');
+	    const sirdataBlock = $('#aky-gdpr-service_sirdata')
+	
+	    if (selectService.val() !== 'service_sirdata') {
+		    sirdataBlock.hide();
+	    }
+	    selectService.on('change', function () {
+		    if (selectService.val() === 'service_sirdata') {
+			    sirdataBlock.show();
+		    } else {
+			    sirdataBlock.hide();
+		    }
+	    });
     });
 
 })( jQuery );

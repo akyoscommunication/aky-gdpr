@@ -101,6 +101,10 @@ class Aky_Gdpr_Public {
 
         add_action('wp_head', function () {
             $options = get_option('aky-gdpr');
+
+            $service_type = $options['rgpd_service_type'];
+
+            if ($service_type == Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
             ?>
             <script type="text/javascript" class="aky-gdpr-script" defer onload>
                 jQuery(document).ready( function() {
@@ -130,6 +134,40 @@ class Aky_Gdpr_Public {
                 })
             </script>
             <?php
+            } elseif ($service_type === Aky_Gdpr_Admin::SERVICE_SIRDATA) {
+                $sirdata_user = $options['sirdata_user'];
+                $sirdata_site = $options['sirdata_site'];
+
+                $ua = $options['rgpd_ua'];
+                $gtm = $options['rgpd_gtm'];
+            ?>
+                <script type="text/javascript" src="//cache.consentframework.com/js/pa/<?= $sirdata_user ?>/c/<?= $sirdata_site ?>/stub" referrerpolicy="unsafe-url" charset="utf-8"></script>
+                <script type="text/javascript" src="//choices.consentframework.com/js/pa/<?= $sirdata_user ?>/c/<?= $sirdata_site ?>/cmp" referrerpolicy="unsafe-url" charset="utf-8" async></script>
+
+                <?php if ($ua): ?>
+                    <!-- Global site tag (gtag.js) - Google Analytics -->
+                    <script async src="https://www.googletagmanager.com/gtag/js?id=<?= $ua ?>"></script>
+                    <script>
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', '<?= $ua ?>');
+                    </script>
+                <?php endif; ?>
+
+                <?php if ($gtm): ?>
+                    <!-- Google Tag Manager -->
+                    <script>
+                        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                        })(window,document,'script','dataLayer','<?= $gtm ?>');
+                    </script>
+                    <!-- End Google Tag Manager -->
+                <?php endif; ?>
+            <?php
+            }
         }, PHP_INT_MAX);
 
     }

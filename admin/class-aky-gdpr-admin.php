@@ -22,6 +22,9 @@
  */
 class Aky_Gdpr_Admin {
 
+    const SERVICE_TARTEAUCITRON = 'service_tarteaucitron';
+    const SERVICE_SIRDATA = 'service_sirdata';
+
     /**
      * The ID of this plugin.
      *
@@ -176,6 +179,10 @@ class Aky_Gdpr_Admin {
         $valid['rgpd_youtube'] = $input['rgpd_youtube'];
         $valid['rgpd_id_client'] = $input['rgpd_id_client'];
         $valid['rgpd_front_logo'] = $input['rgpd_front_logo'];
+
+        $valid['rgpd_service_type'] = $input['rgpd_service_type'];
+        $valid['sirdata_user'] = $input['sirdata_user'];
+        $valid['sirdata_site'] = $input['sirdata_site'];
 
         if (empty($valid['rgpd_custom_rgpd_page'])) {
             include_once 'inc/aky-gdpr-pages.php';
