@@ -139,7 +139,7 @@ class Aky_Gdpr_Public {
                 $sirdata_site = $options['sirdata_site'];
 
                 $ua = $options['rgpd_ua'];
-                $gtm = $options['rgpd_gtm'];
+                $gtm = $options['rgpd_gta'];
             ?>
                 <script type="text/javascript" src="//cache.consentframework.com/js/pa/<?= $sirdata_user ?>/c/<?= $sirdata_site ?>/stub" referrerpolicy="unsafe-url" charset="utf-8"></script>
                 <script type="text/javascript" src="//choices.consentframework.com/js/pa/<?= $sirdata_user ?>/c/<?= $sirdata_site ?>/cmp" referrerpolicy="unsafe-url" charset="utf-8" async></script>
