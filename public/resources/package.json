@@ -36,7 +36,7 @@
   "dependencies": {
     "cross-env": "^5.2.0",
     "jquery": "^3.3.1",
-    "tarteaucitronjs": "^1.2.0"
+    "tarteaucitronjs": "^1.9.4"
   },
   "browserslist": [
     "last 2 versions",

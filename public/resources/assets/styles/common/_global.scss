@@ -130,6 +130,19 @@
         color: $gray;
         padding: 3rem;
 
+        button{
+            border-radius: 6px;
+            margin: 0 10px 10px 0;
+            padding: .3rem 1rem;
+            border: none;
+
+            &:hover{
+                color: #fff;
+                background-color: #000;
+                cursor: pointer;
+            }
+        }
+
     }
     #tarteaucitron {
         &Personalize,
@@ -144,8 +157,8 @@
             border: none;
 
             &:hover{
-                color: inherit;
-                background-color: transparent;
+                //color: inherit;
+                //background-color: transparent;
             }
         }
         &DisclaimerAlert {

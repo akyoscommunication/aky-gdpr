@@ -120,6 +120,7 @@ class Aky_Gdpr_Public {
 
                         "adblocker": false, /* Show a Warning if an adblocker is detected */
                         "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
+                        "DenyAllCta" : true,
                         "highPrivacy": true, /* Disable auto consent */
                         "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
 

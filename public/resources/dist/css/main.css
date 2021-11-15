@@ -150,6 +150,19 @@
   padding: 3rem;
 }
 
+#tarteaucitronRoot .tarteaucitronAlertBigTop button {
+  border-radius: 6px;
+  margin: 0 10px 10px 0;
+  padding: .3rem 1rem;
+  border: none;
+}
+
+#tarteaucitronRoot .tarteaucitronAlertBigTop button:hover {
+  color: #fff;
+  background-color: #000;
+  cursor: pointer;
+}
+
 #tarteaucitronRoot #tarteaucitronPersonalize,
 #tarteaucitronRoot #tarteaucitronCloseAlert,
 #tarteaucitronRoot #tarteaucitronPrivacyUrl,
@@ -160,16 +173,6 @@
   margin: 0 10px 10px 0;
   padding: .3rem 1rem;
   border: none;
-}
-
-#tarteaucitronRoot #tarteaucitronPersonalize:hover,
-#tarteaucitronRoot #tarteaucitronCloseAlert:hover,
-#tarteaucitronRoot #tarteaucitronPrivacyUrl:hover,
-#tarteaucitronRoot #tarteaucitronAllAllowed:hover,
-#tarteaucitronRoot #tarteaucitronAllDenied:hover,
-#tarteaucitronRoot #tarteaucitron button:hover {
-  color: inherit;
-  background-color: transparent;
 }
 
 #tarteaucitronRoot #tarteaucitronDisclaimerAlert {
