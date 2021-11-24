@@ -1,6 +1,11 @@
 #tarteaucitronRoot{
     position: fixed;
     z-index: 999999999;
+
+    #tarteaucitronIcon {
+        display: none !important;
+    }
+
     #tarteaucitron {
         //top: 0 !important;
         background-color: rgba(0,0,0, .85);
