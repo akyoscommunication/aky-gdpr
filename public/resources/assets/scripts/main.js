@@ -1,15 +1,7 @@
-// // import external dependencies
-// import 'jquery';
-
-// // Import everything from autoload
-// import "./autoload/**/*"
-
-jQuery(window).on('load', function () {
-    jQuery(window).on('scroll', function () {
-        if (jQuery(window).scrollTop() + jQuery(window).height() > jQuery(document).height() - 100) {
-            jQuery('#akyCookiesGestion').addClass('active');
-        } else {
-            jQuery('#akyCookiesGestion').removeClass('active');
-        }
-    });
+window.addEventListener('scroll', (e) => {
+	if (window.scrollTop() + window.innerHeight > document.innerHeight - 100) {
+		document.getElementById("akyCookiesGestion").classList.add("active");
+	} else {
+		document.getElementById("akyCookiesGestion").classList.remove("active");
+	}
 });

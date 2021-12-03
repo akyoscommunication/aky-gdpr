@@ -50,31 +50,26 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
 if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
     if($rgpd_analytics) {
     ?>
-        <script type="text/javascript">
-            jQuery(document).ready(function() {
+        <script type="text/javascript" defer>
                 tarteaucitron.user.analyticsUa = "<?php echo $rgpd_analytics; ?>";
                 tarteaucitron.user.analyticsMore = function () { /* add here your optionnal ga.push() */ };
                 (tarteaucitron.job = tarteaucitron.job || []).push("analytics");
-            });
+            };
         </script>
     <?php
     }
     if($rgpd_gta) {
     ?>
-        <script type="text/javascript">
-            jQuery(document).ready(function() {
-                tarteaucitron.user.googletagmanagerId = "<?php echo $rgpd_gta; ?>";
-                (tarteaucitron.job = tarteaucitron.job || []).push("googletagmanager");
-            });
+        <script type="text/javascript" defer>
+            tarteaucitron.user.googletagmanagerId = "<?php echo $rgpd_gta; ?>";
+            (tarteaucitron.job = tarteaucitron.job || []).push("googletagmanager");
         </script>
     <?php
     }
     if($rgpd_youtube) {
     ?>
-    <script type="text/javascript">
-        jQuery(document).ready(function() {
-            (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
-        });
+    <script type="text/javascript" defer>
+        (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
     </script>
     <?php
     }

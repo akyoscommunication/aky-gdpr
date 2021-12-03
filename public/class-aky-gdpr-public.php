@@ -106,33 +106,31 @@ class Aky_Gdpr_Public {
 
             if ($service_type == Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
             ?>
-            <script type="text/javascript" class="aky-gdpr-script" defer onload>
-                jQuery(document).ready( function() {
-                    tarteaucitron.init({
-                        "privacyUrl": "<?php echo (!empty($options['rgpd_custom_rgpd_link']) && (!empty($options['rgpd_custom_rgpd_page'])) ? $options['rgpd_custom_rgpd_link'] : '/politique-de-conservation-de-donnees' ); ?>", /* Privacy policy url */
+            <script type="text/javascript" class="aky-gdpr-script" defer>
+                tarteaucitron.init({
+                    "privacyUrl": "<?php echo (!empty($options['rgpd_custom_rgpd_link']) && (!empty($options['rgpd_custom_rgpd_page'])) ? $options['rgpd_custom_rgpd_link'] : '/politique-de-conservation-de-donnees' ); ?>", /* Privacy policy url */
 
-                        "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
-                        "cookieName": "tartaucitron", /* Cookie name */
+                    "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+                    "cookieName": "tartaucitron", /* Cookie name */
 
-                        "orientation": "top", /* Banner position (top - bottom) */
-                        "showAlertSmall": false, /* Show the small banner on bottom right */
-                        "cookieslist": false, /* Show the cookie list */
+                    "orientation": "top", /* Banner position (top - bottom) */
+                    "showAlertSmall": false, /* Show the small banner on bottom right */
+                    "cookieslist": false, /* Show the cookie list */
 
-                        "adblocker": false, /* Show a Warning if an adblocker is detected */
-                        "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
-                        "DenyAllCta" : true,
-                        "highPrivacy": true, /* Disable auto consent */
-                        "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
+                    "adblocker": false, /* Show a Warning if an adblocker is detected */
+                    "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
+                    "DenyAllCta" : true,
+                    "highPrivacy": true, /* Disable auto consent */
+                    "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
 
-                        "removeCredit": false, /* Remove credit link */
-                        "moreInfoLink": true, /* Show more info link */
-                        "useExternalCss": true, /* If false, the tarteaucitron.css file will be loaded */
+                    "removeCredit": false, /* Remove credit link */
+                    "moreInfoLink": true, /* Show more info link */
+                    "useExternalCss": true, /* If false, the tarteaucitron.css file will be loaded */
 
-                        //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
+                    //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
 
-                        "readmoreLink": "/utilisation-des-cookies" /* Change the default readmore link */
-                    });
-                })
+                    "readmoreLink": "/utilisation-des-cookies" /* Change the default readmore link */
+                });
             </script>
             <?php
             } elseif ($service_type === Aky_Gdpr_Admin::SERVICE_SIRDATA) {
