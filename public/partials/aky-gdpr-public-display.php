@@ -51,10 +51,9 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
     if($rgpd_analytics) {
     ?>
         <script type="text/javascript" defer>
-                tarteaucitron.user.analyticsUa = "<?php echo $rgpd_analytics; ?>";
-                tarteaucitron.user.analyticsMore = function () { /* add here your optionnal ga.push() */ };
-                (tarteaucitron.job = tarteaucitron.job || []).push("analytics");
-            };
+            tarteaucitron.user.analyticsUa = "<?php echo $rgpd_analytics; ?>";
+            tarteaucitron.user.analyticsMore = function () { /* add here your optionnal ga.push() */ };
+            (tarteaucitron.job = tarteaucitron.job || []).push("analytics");
         </script>
     <?php
     }
