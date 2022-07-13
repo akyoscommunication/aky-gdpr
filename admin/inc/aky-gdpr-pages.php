@@ -20,7 +20,6 @@ $rgpd_title = $input['rgpd_title'];
 $rgpd_mail = $input['rgpd_mail'];
 $rgpd_address = $input['rgpd_address'];
 $rgpd_contact = $input['rgpd_contact'];
-$rgpd_analytics = $input['rgpd_analytics'];
 $rgpd_gta = $input['rgpd_gta'];
 $linkpage = get_home_url().'/politique-de-conservation-de-donnees';
 $linkpagecookie = get_home_url().'/utilisation-des-cookies';

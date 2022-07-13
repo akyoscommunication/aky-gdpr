@@ -32,7 +32,6 @@
             $rgpd_mail = $options['rgpd_mail'];
             $rgpd_address = $options['rgpd_address'];
             $rgpd_contact = $options['rgpd_contact'];
-            $rgpd_analytics = $options['rgpd_analytics'];
             $rgpd_gta = $options['rgpd_gta'];
             $rgpd_youtube = $options['rgpd_youtube'];
             $rgpd_id_client = $options['rgpd_id_client'];
@@ -101,14 +100,9 @@
             <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-contact" name="<?php echo $this->plugin_name; ?>[rgpd_contact]" value="<?php if(!empty($rgpd_contact)) echo $rgpd_contact; ?>" required/>
         </fieldset>
 
-
         <fieldset class="aky-gdpr-field">
-            <label for="<?php echo $this->plugin_name; ?>-analytics">Code UA Analytics</label>
-            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-analytics" name="<?php echo $this->plugin_name; ?>[rgpd_analytics]" value="<?php if(!empty($rgpd_analytics)) echo $rgpd_analytics; ?>" />
-        </fieldset>
-
-        <fieldset class="aky-gdpr-field">
-            <label for="<?php echo $this->plugin_name; ?>-gta">Code UA TagManager</label>
+            <label for="<?php echo $this->plugin_name; ?>-gta">Code GTM TagManager</label>
+            <em class="aky-gdpr-field-info">Pour en mettre plusieurs, mettre les codes GTM séparés par des pipes (|)</em>
             <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-gta" name="<?php echo $this->plugin_name; ?>[rgpd_gta]" value="<?php if(!empty($rgpd_gta)) echo $rgpd_gta; ?>" />
         </fieldset>
 

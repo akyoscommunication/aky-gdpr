@@ -15,7 +15,6 @@
 $options = get_option('aky-gdpr');
 
 // Cleanup
-$rgpd_analytics = $options['rgpd_analytics'];
 $rgpd_gta = $options['rgpd_gta'];
 $rgpd_youtube = $options['rgpd_youtube'];
 $rgpd_front_logo = $options['rgpd_front_logo'];
@@ -48,20 +47,11 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
 <?php
 
 if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
-    if($rgpd_analytics) {
-    ?>
-        <script type="text/javascript" defer>
-            tarteaucitron.user.analyticsUa = "<?php echo $rgpd_analytics; ?>";
-            tarteaucitron.user.analyticsMore = function () { /* add here your optionnal ga.push() */ };
-            (tarteaucitron.job = tarteaucitron.job || []).push("analytics");
-        </script>
-    <?php
-    }
     if($rgpd_gta) {
     ?>
         <script type="text/javascript" defer>
-            tarteaucitron.user.googletagmanagerId = "<?php echo $rgpd_gta; ?>";
-            (tarteaucitron.job = tarteaucitron.job || []).push("googletagmanager");
+	        tarteaucitron.user.multiplegoogletagmanagerId = ['<?= implode("','", explode('|', $rgpd_gta)) ?>'];
+	        (tarteaucitron.job = tarteaucitron.job || []).push('multiplegoogletagmanager');
         </script>
     <?php
     }

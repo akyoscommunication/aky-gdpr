@@ -174,7 +174,6 @@ class Aky_Gdpr_Admin {
         $valid['rgpd_mail'] = $input['rgpd_mail'];
         $valid['rgpd_address'] = $input['rgpd_address'];
         $valid['rgpd_contact'] = $input['rgpd_contact'];
-        $valid['rgpd_analytics'] = $input['rgpd_analytics'];
         $valid['rgpd_gta'] = $input['rgpd_gta'];
         $valid['rgpd_youtube'] = $input['rgpd_youtube'];
         $valid['rgpd_id_client'] = $input['rgpd_id_client'];

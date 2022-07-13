@@ -9,7 +9,6 @@ $rgpd_mail = $options['rgpd_mail'];
 $rgpd_address = $options['rgpd_address'];
 //        $rgpd_color_button = $options['rgpd_color_button'];
 $rgpd_contact = $options['contact'];
-$rgpd_analytics = $options['rgpd_analytics'];
 $rgpd_gta = $options['rgpd_gta'];
 $linkpage = get_home_url().'/politique-de-conservation-de-donnees';
 $linkpagecookie = get_home_url().'/utilisation-des-cookies';
