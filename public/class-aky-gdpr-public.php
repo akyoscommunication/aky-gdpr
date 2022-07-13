@@ -137,12 +137,14 @@ class Aky_Gdpr_Public {
                 $sirdata_user = $options['sirdata_user'];
                 $sirdata_site = $options['sirdata_site'];
 
-                $gtm = $options['rgpd_gta'];
+                $gtms = explode('|', $options['rgpd_gta']);
             ?>
                 <script type="text/javascript" src="//cache.consentframework.com/js/pa/<?= $sirdata_user ?>/c/<?= $sirdata_site ?>/stub" referrerpolicy="unsafe-url" charset="utf-8"></script>
                 <script type="text/javascript" src="//choices.consentframework.com/js/pa/<?= $sirdata_user ?>/c/<?= $sirdata_site ?>/cmp" referrerpolicy="unsafe-url" charset="utf-8" async></script>
 
-                <?php if ($gtm): ?>
+                <?php if ($gtms):
+                    foreach ($gtms as $gtm):
+                    ?>
                     <!-- Google Tag Manager -->
                     <script>
                         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -152,7 +154,10 @@ class Aky_Gdpr_Public {
                         })(window,document,'script','dataLayer','<?= $gtm ?>');
                     </script>
                     <!-- End Google Tag Manager -->
-                <?php endif; ?>
+                <?php
+                    endforeach;
+                    endif;
+                ?>
             <?php
             }
         }, PHP_INT_MAX);
