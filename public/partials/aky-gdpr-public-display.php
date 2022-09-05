@@ -19,6 +19,8 @@ $rgpd_gta = $options['rgpd_gta'];
 $rgpd_youtube = $options['rgpd_youtube'];
 $rgpd_front_logo = $options['rgpd_front_logo'];
 
+$rgpd_tag_matomo_url = $options['rgpd_tag_matomo_url'];
+
 $rgpd_service_type = $options['rgpd_service_type'];
 
 $onclick = null;
@@ -48,19 +50,27 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
 
 if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
     if($rgpd_gta) {
-    ?>
+        ?>
         <script type="text/javascript" defer>
-	        tarteaucitron.user.multiplegoogletagmanagerId = ['<?= implode("','", explode('|', $rgpd_gta)) ?>'];
-	        (tarteaucitron.job = tarteaucitron.job || []).push('multiplegoogletagmanager');
+			tarteaucitron.user.multiplegoogletagmanagerId = ['<?= implode("','", explode('|', $rgpd_gta)) ?>'];
+			(tarteaucitron.job = tarteaucitron.job || []).push('multiplegoogletagmanager');
         </script>
-    <?php
+        <?php
     }
     if($rgpd_youtube) {
-    ?>
-    <script type="text/javascript" defer>
-        (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
-    </script>
-    <?php
+        ?>
+        <script type="text/javascript" defer>
+			(tarteaucitron.job = tarteaucitron.job || []).push('youtube');
+        </script>
+        <?php
+    }
+    if ($rgpd_tag_matomo_url) {
+        ?>
+        <script type="text/javascript" defer>
+		    tarteaucitron.user.matomotmUrl = '<?= $rgpd_tag_matomo_url ?>';
+		    (tarteaucitron.job = tarteaucitron.job || []).push('matomotm');
+        </script>
+        <?php
     }
 }
 ?>

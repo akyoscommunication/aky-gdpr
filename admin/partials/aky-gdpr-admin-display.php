@@ -37,6 +37,8 @@
             $rgpd_id_client = $options['rgpd_id_client'];
             $rgpd_front_logo = $options['rgpd_front_logo'];
 
+            $rgpd_tag_matomo_url = $options['rgpd_tag_matomo_url'];
+
             $rgpd_service_type = $options['rgpd_service_type'];
             $sirdata_user = $options['sirdata_user'];
             $sirdata_site = $options['sirdata_site'];
@@ -104,6 +106,11 @@
             <label for="<?php echo $this->plugin_name; ?>-gta">Code GTM TagManager</label>
             <em class="aky-gdpr-field-info">Pour en mettre plusieurs, mettre les codes GTM séparés par des pipes (|)</em>
             <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-gta" name="<?php echo $this->plugin_name; ?>[rgpd_gta]" value="<?php if(!empty($rgpd_gta)) echo $rgpd_gta; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-tag_matomo_url">URL TAG MATOMO</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-tag_matomo_url" name="<?php echo $this->plugin_name; ?>[rgpd_tag_matomo_url]" value="<?php if(!empty($rgpd_tag_matomo_url)) echo $rgpd_tag_matomo_url; ?>" />
         </fieldset>
 
         <fieldset class="aky-gdpr-field">
