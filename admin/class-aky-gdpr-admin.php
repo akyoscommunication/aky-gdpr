@@ -179,7 +179,9 @@ class Aky_Gdpr_Admin {
         $valid['rgpd_id_client'] = $input['rgpd_id_client'];
         $valid['rgpd_front_logo'] = $input['rgpd_front_logo'];
 
-        $valid['rgpd_tag_matomo_url'] = $input['rgpd_tag_matomo_url'];
+        $valid['rgpd_matomo_url'] = $input['rgpd_matomo_url'];
+        $valid['rgpd_matomo_site_id'] = $input['rgpd_matomo_site_id'];
+        $valid['rgpd_matomo_tag'] = $input['rgpd_matomo_tag'];
 
         $valid['rgpd_service_type'] = $input['rgpd_service_type'];
         $valid['sirdata_user'] = $input['sirdata_user'];

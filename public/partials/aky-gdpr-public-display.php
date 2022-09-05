@@ -19,7 +19,9 @@ $rgpd_gta = $options['rgpd_gta'];
 $rgpd_youtube = $options['rgpd_youtube'];
 $rgpd_front_logo = $options['rgpd_front_logo'];
 
-$rgpd_tag_matomo_url = $options['rgpd_tag_matomo_url'];
+$rgpd_matomo_url = $options['rgpd_matomo_url'];
+$rgpd_matomo_site_id = $options['rgpd_matomo_site_id'];
+$rgpd_matomo_tag = $options['rgpd_matomo_tag'];
 
 $rgpd_service_type = $options['rgpd_service_type'];
 
@@ -64,13 +66,21 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
         </script>
         <?php
     }
-    if ($rgpd_tag_matomo_url) {
+    if ($rgpd_matomo_url) {
+        ?>
+        <script type="text/javascript" defer>tarteaucitron.user.matomoHost = '<?= $rgpd_tag_matomo_url ?>';</script>
+        <?php
+    }
+    if ($rgpd_matomo_site_id) {
         ?>
         <script type="text/javascript" defer>
-		    tarteaucitron.user.matomotmUrl = '<?= $rgpd_tag_matomo_url ?>';
-		    (tarteaucitron.job = tarteaucitron.job || []).push('matomotm');
+		    tarteaucitron.user.matomoId = <?= $rgpd_matomo_site_id ?>;
+		    (tarteaucitron.job = tarteaucitron.job || []).push('matomo');
         </script>
         <?php
+    }
+    if ($rgpd_matomo_tag) {
+        echo $rgpd_matomo_tag;
     }
 }
 ?>

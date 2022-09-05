@@ -37,7 +37,9 @@
             $rgpd_id_client = $options['rgpd_id_client'];
             $rgpd_front_logo = $options['rgpd_front_logo'];
 
-            $rgpd_tag_matomo_url = $options['rgpd_tag_matomo_url'];
+            $rgpd_matomo_url = $options['rgpd_matomo_url'];
+            $rgpd_matomo_site_id = $options['rgpd_matomo_site_id'];
+            $rgpd_matomo_tag = $options['rgpd_matomo_tag'];
 
             $rgpd_service_type = $options['rgpd_service_type'];
             $sirdata_user = $options['sirdata_user'];
@@ -109,8 +111,18 @@
         </fieldset>
 
         <fieldset class="aky-gdpr-field">
-            <label for="<?php echo $this->plugin_name; ?>-tag_matomo_url">URL TAG MATOMO</label>
-            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-tag_matomo_url" name="<?php echo $this->plugin_name; ?>[rgpd_tag_matomo_url]" value="<?php if(!empty($rgpd_tag_matomo_url)) echo $rgpd_tag_matomo_url; ?>" />
+            <label for="<?php echo $this->plugin_name; ?>-matomo_url">URL MATOMO</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-matomo_url" name="<?php echo $this->plugin_name; ?>[rgpd_matomo_url]" value="<?php if(!empty($rgpd_matomo_url)) echo $rgpd_matomo_url; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-matomo_site_id">ID site MATOMO</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-matomo_site_id" name="<?php echo $this->plugin_name; ?>[rgpd_matomo_site_id]" value="<?php if(!empty($rgpd_matomo_site_id)) echo $rgpd_matomo_site_id; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-matomo_tag">Tag MATOMO</label>
+            <textarea class="regular-text" id="<?php echo $this->plugin_name; ?>-matomo_tag" name="<?php echo $this->plugin_name; ?>[rgpd_matomo_tag]"><?php if(!empty($rgpd_matomo_tag)) echo $rgpd_matomo_tag; ?></textarea>
         </fieldset>
 
         <fieldset class="aky-gdpr-field">
