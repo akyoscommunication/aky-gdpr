@@ -142,7 +142,7 @@ class Aky_Gdpr_Public {
                 <script type="text/javascript" src="//cache.consentframework.com/js/pa/<?= $sirdata_user ?>/c/<?= $sirdata_site ?>/stub" referrerpolicy="unsafe-url" charset="utf-8"></script>
                 <script type="text/javascript" src="//choices.consentframework.com/js/pa/<?= $sirdata_user ?>/c/<?= $sirdata_site ?>/cmp" referrerpolicy="unsafe-url" charset="utf-8" async></script>
 
-                <?php if ($gtms):
+                <?php if ($options['rgpd_gta']):
                     foreach ($gtms as $gtm):
                     ?>
                     <!-- Google Tag Manager -->
