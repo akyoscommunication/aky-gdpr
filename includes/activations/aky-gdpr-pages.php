@@ -23,7 +23,7 @@ if ($rgpd_title && $rgpd_mail && $rgpd_address && $rgpd_contact) {
         $page1 = array(
             'post_title'  => __( 'Politique de conservation de données' ),
             'post_status' => 'publish',
-            'post_content'  => '[vc_row][vc_column][vc_column_text]
+            'post_content'  => '
 			      <p style="text-align: center;">&nbsp;</p>
 	<h2 class="title-primary">1. Généralités</h2>
 	'.$rgpd_title.' ('.$rgpd_address.'), en sa qualité de responsable du traitement, attache une grande importance à la protection et au respect de votre vie privée. La présente politique vise à vous informer de nos pratiques concernant la collecte, l’utilisation et le partage des informations que vous êtes amenés à nous fournir par le biais de notre site internet (le « Site »). '.$rgpd_title.' sera désignée par la suite en tant que « '.$rgpd_title.' », « nous » ou « notre ».
@@ -141,7 +141,7 @@ if ($rgpd_title && $rgpd_mail && $rgpd_address && $rgpd_contact) {
 	Vous pourrez ainsi refuser ou accepter les cookies utilisés les professionnels de la publicité adhérents.
 	<p style="text-align: center;">&nbsp;</p>
 	<h2 class="title-primary">Des questions concernant la Charte sur les Cookies de '.$rgpd_title.' ?</h2>
-	Si vous avez des questions concernant la Charte sur les Cookies de '.$rgpd_title.', n’hésitez pas à nous contacter en utilisant le <a href="'.$rgpd_contact.'">formulaire en ligne</a>.[/vc_column_text][/vc_column][/vc_row]',
+	Si vous avez des questions concernant la Charte sur les Cookies de '.$rgpd_title.', n’hésitez pas à nous contacter en utilisant le <a href="'.$rgpd_contact.'">formulaire en ligne</a>.',
             'post_author' => $current_user->ID,
             'post_type'   => 'page',
         );
