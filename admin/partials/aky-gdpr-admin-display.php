@@ -34,6 +34,7 @@
             $rgpd_contact = $options['rgpd_contact'];
             $rgpd_gta = $options['rgpd_gta'];
             $rgpd_youtube = $options['rgpd_youtube'];
+            $rgpd_pixelfb = $options['rgpd_pixelfb'];
             $rgpd_id_client = $options['rgpd_id_client'];
             $rgpd_front_logo = $options['rgpd_front_logo'];
 
@@ -108,6 +109,11 @@
             <label for="<?php echo $this->plugin_name; ?>-gta">Code GTM TagManager</label>
             <em class="aky-gdpr-field-info">Pour en mettre plusieurs, mettre les codes GTM séparés par des pipes (|)</em>
             <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-gta" name="<?php echo $this->plugin_name; ?>[rgpd_gta]" value="<?php if(!empty($rgpd_gta)) echo $rgpd_gta; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-pixelfb">ID du Pixel Facebook</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-pixelfb" name="<?php echo $this->plugin_name; ?>[rgpd_pixelfb]" value="<?php if(!empty($rgpd_pixelfb)) echo $rgpd_pixelfb; ?>" />
         </fieldset>
 
         <fieldset class="aky-gdpr-field">

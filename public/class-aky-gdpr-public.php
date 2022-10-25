@@ -138,6 +138,7 @@ class Aky_Gdpr_Public {
                 $sirdata_site = $options['sirdata_site'];
 
                 $gtms = explode('|', $options['rgpd_gta']);
+                $pixelfb = $options['rgpd_pixelfb'];
             ?>
                 <script type="text/javascript" src="//cache.consentframework.com/js/pa/<?= $sirdata_user ?>/c/<?= $sirdata_site ?>/stub" referrerpolicy="unsafe-url" charset="utf-8"></script>
                 <script type="text/javascript" src="//choices.consentframework.com/js/pa/<?= $sirdata_user ?>/c/<?= $sirdata_site ?>/cmp" referrerpolicy="unsafe-url" charset="utf-8" async></script>
@@ -157,6 +158,12 @@ class Aky_Gdpr_Public {
                 <?php
                     endforeach;
                     endif;
+                ?>
+                <?php if ($pixelfb):
+                        ?>
+                        <script> !function(f,b,e,v,n,t,s) { if(f.fbq) return; n=f.fbq=function(){ n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments); }; if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[]; t=b.createElement(e); t.async=!0; t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s); } (window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '<?= $pixelfb ?>'); fbq('track', 'PageView'); </script>
+                    <?php
+                endif;
                 ?>
             <?php
             }

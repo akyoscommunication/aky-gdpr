@@ -17,6 +17,7 @@ $options = get_option('aky-gdpr');
 // Cleanup
 $rgpd_gta = $options['rgpd_gta'];
 $rgpd_youtube = $options['rgpd_youtube'];
+$rgpd_pixelfb = $options['rgpd_pixelfb'];
 $rgpd_front_logo = $options['rgpd_front_logo'];
 
 $rgpd_matomo_url = $options['rgpd_matomo_url'];
@@ -56,6 +57,15 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
         <script type="text/javascript" defer>
 			tarteaucitron.user.multiplegoogletagmanagerId = ['<?= implode("','", explode('|', $rgpd_gta)) ?>'];
 			(tarteaucitron.job = tarteaucitron.job || []).push('multiplegoogletagmanager');
+        </script>
+        <?php
+    }
+    if($rgpd_pixelfb) {
+        ?>
+        <script type="text/javascript">
+		    tarteaucitron.user.facebookpixelId = '<?= $rgpd_pixelfb ?>';
+			tarteaucitron.user.facebookpixelMore = function () { /* add here your optionnal facebook pixel function */ };
+		    (tarteaucitron.job = tarteaucitron.job || []).push('facebookpixel');
         </script>
         <?php
     }
