@@ -1,0 +1,11 @@
+{
+    "name": "aky-gdprakyoscommunication/aky-gdpr",
+    "description": "Gestion RGPD et tags de suivi (GTM, Youtube, Facebook Pixel, ...)",
+    "authors": [
+        {
+            "name": "Lilian Carneau",
+            "email": "lilian.akyos@gmail.com"
+        }
+    ],
+    "require": {}
+}
