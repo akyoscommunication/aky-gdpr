@@ -7,5 +7,6 @@
             "email": "lilian.akyos@gmail.com"
         }
     ],
+    "type": "wordpress-plugin",
     "require": {}
 }
