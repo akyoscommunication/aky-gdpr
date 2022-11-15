@@ -25,7 +25,7 @@ function custom_dashboard_help() {
 
     ?>
     <div class="plan">
-        <h3>Consomation de votre forfait de maintenance</h3>
+        <h3>Consommation de votre forfait de maintenance</h3>
         <?php if ($rgpd_id_client) { ?>
         <div class="progress">
             <div class="progress-bar progress-bar-<?= $status ?>" role="progressbar" aria-valuenow="100"
@@ -38,7 +38,7 @@ function custom_dashboard_help() {
         <?php } ?>
     </div>
     <div class="footer">
-        <p>Si vous avez un problème, besoin d'aide ou toutes autres demandes vous pouvez nous contacter par mail (info@akyos.com) ou au 03 80 10 23 57.</p>
+        <p>Si vous avez un problème, besoin d'aide ou toute autres demandes vous pouvez nous contacter par mail (info@akyos.com) ou au 03 80 10 23 57.</p>
         <p>
             Cordialement, L'équipe Akyos.
         </p>
