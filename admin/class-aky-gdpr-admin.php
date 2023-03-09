@@ -181,6 +181,7 @@ class Aky_Gdpr_Admin {
         $valid['rgpd_front_logo'] = $input['rgpd_front_logo'];
 
         $valid['rgpd_matomo_url'] = $input['rgpd_matomo_url'];
+        $valid['rgpd_matomo_js_path'] = $input['rgpd_matomo_js_path'];
         $valid['rgpd_matomo_site_id'] = $input['rgpd_matomo_site_id'];
         $valid['rgpd_matomo_tag'] = $input['rgpd_matomo_tag'];
 

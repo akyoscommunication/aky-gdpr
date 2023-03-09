@@ -40,6 +40,7 @@
 
             $rgpd_matomo_url = $options['rgpd_matomo_url'];
             $rgpd_matomo_site_id = $options['rgpd_matomo_site_id'];
+            $rgpd_matomo_js_path = $options['rgpd_matomo_js_path'];
             $rgpd_matomo_tag = $options['rgpd_matomo_tag'];
 
             $rgpd_service_type = $options['rgpd_service_type'];
@@ -119,6 +120,11 @@
         <fieldset class="aky-gdpr-field">
             <label for="<?php echo $this->plugin_name; ?>-matomo_url">URL MATOMO</label>
             <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-matomo_url" name="<?php echo $this->plugin_name; ?>[rgpd_matomo_url]" value="<?php if(!empty($rgpd_matomo_url)) echo $rgpd_matomo_url; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-matomo_url">JS PATH MATOMO</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-matomo_js_path" name="<?php echo $this->plugin_name; ?>[rgpd_matomo_js_path]" value="<?php if(!empty($rgpd_matomo_js_path)) echo $rgpd_matomo_js_path; ?>" />
         </fieldset>
 
         <fieldset class="aky-gdpr-field">

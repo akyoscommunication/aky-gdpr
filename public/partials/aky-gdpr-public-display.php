@@ -85,7 +85,7 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
         ?>
         <script type="text/javascript" defer>
 		    tarteaucitron.user.matomoId = <?= $rgpd_matomo_site_id ?>;
-		    (tarteaucitron.job = tarteaucitron.job || []).push('matomo');
+		    (tarteaucitron.job = tarteaucitron.job || []).push('matomocloud');
         </script>
         <?php
     }
