@@ -78,7 +78,7 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
     }
     if ($rgpd_matomo_url) {
         ?>
-        <script type="text/javascript" defer>tarteaucitron.user.matomoHost = '<?= $rgpd_tag_matomo_url ?>';</script>
+        <script type="text/javascript" defer>tarteaucitron.user.matomoHost = '<?= $rgpd_matomo_url ?>';</script>
         <?php
     }
     if ($rgpd_matomo_site_id) {
