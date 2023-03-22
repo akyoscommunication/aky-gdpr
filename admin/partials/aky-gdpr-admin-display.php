@@ -41,7 +41,7 @@
             $rgpd_matomo_url = $options['rgpd_matomo_url'];
             $rgpd_matomo_site_id = $options['rgpd_matomo_site_id'];
             $rgpd_matomo_js_path = $options['rgpd_matomo_js_path'];
-            $rgpd_matomo_tag = $options['rgpd_matomo_tag'];
+            $rgpd_matomo_url_tag = $options['rgpd_matomo_url_tag'];
 
             $rgpd_service_type = $options['rgpd_service_type'];
             $sirdata_user = $options['sirdata_user'];
@@ -133,8 +133,9 @@
         </fieldset>
 
         <fieldset class="aky-gdpr-field">
-            <label for="<?php echo $this->plugin_name; ?>-matomo_tag">Tag MATOMO</label>
-            <textarea class="regular-text" id="<?php echo $this->plugin_name; ?>-matomo_tag" name="<?php echo $this->plugin_name; ?>[rgpd_matomo_tag]"><?php if(!empty($rgpd_matomo_tag)) echo $rgpd_matomo_tag; ?></textarea>
+            <label for="<?php echo $this->plugin_name; ?>-matomo_url_tag">Url Tag MATOMO</label>
+            <em>( url dans g.src= du script donné par Matomo pour le tag manager )</em>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-matomo_tag" name="<?php echo $this->plugin_name; ?>[rgpd_matomo_url_tag]" value="<?php if(!empty($rgpd_matomo_url_tag)) echo $rgpd_matomo_url_tag; ?>" />
         </fieldset>
 
         <fieldset class="aky-gdpr-field">

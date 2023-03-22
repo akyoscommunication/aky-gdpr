@@ -22,7 +22,7 @@ $rgpd_front_logo = $options['rgpd_front_logo'];
 
 $rgpd_matomo_url = $options['rgpd_matomo_url'];
 $rgpd_matomo_site_id = $options['rgpd_matomo_site_id'];
-$rgpd_matomo_tag = $options['rgpd_matomo_tag'];
+$rgpd_matomo_url_tag = $options['rgpd_matomo_url_tag'];
 
 $rgpd_service_type = $options['rgpd_service_type'];
 
@@ -89,8 +89,13 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
         </script>
         <?php
     }
-    if ($rgpd_matomo_tag) {
-        echo $rgpd_matomo_tag;
+    if ($rgpd_matomo_url_tag) {
+        ?>
+        <script type="text/javascript">
+		    tarteaucitron.user.matomotmUrl = '<?= $rgpd_matomo_url_tag ?>';
+		    (tarteaucitron.job = tarteaucitron.job || []).push('matomotm');
+        </script>
+        <?php
     }
 }
 ?>
