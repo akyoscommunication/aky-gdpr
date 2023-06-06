@@ -103,6 +103,15 @@ class Aky_Gdpr_Public {
             $options = get_option('aky-gdpr');
 
             $service_type = $options['rgpd_service_type'];
+            $rgpd_front_display = $options['rgpd_front_display'];
+
+            if ($rgpd_front_display) {
+            ?>
+            <style>
+                #tarteaucitronRoot { display: none !important; }
+            </style>
+            <?php
+            }
 
             if ($service_type == Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
             ?>
