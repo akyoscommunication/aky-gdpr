@@ -179,6 +179,7 @@ class Aky_Gdpr_Admin {
         $valid['rgpd_youtube'] = $input['rgpd_youtube'];
         $valid['rgpd_id_client'] = $input['rgpd_id_client'];
         $valid['rgpd_front_logo'] = $input['rgpd_front_logo'];
+        $valid['rgpd_front_logo_display'] = $input['rgpd_front_logo_display'];
         $valid['rgpd_front_display'] = $input['rgpd_front_display'];
 
         $valid['rgpd_matomo_url'] = $input['rgpd_matomo_url'];

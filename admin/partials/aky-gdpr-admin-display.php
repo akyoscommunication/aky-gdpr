@@ -37,6 +37,7 @@
             $rgpd_pixelfb = $options['rgpd_pixelfb'];
             $rgpd_id_client = $options['rgpd_id_client'];
             $rgpd_front_logo = $options['rgpd_front_logo'];
+            $rgpd_front_logo_display = $options['rgpd_front_logo_display'];
             $rgpd_front_display = $options['rgpd_front_display'];
 
             $rgpd_matomo_url = $options['rgpd_matomo_url'];
@@ -157,9 +158,15 @@
         </fieldset>
 
         <fieldset class="aky-gdpr-field">
-            <label for="<?php echo $this->plugin_name; ?>-rgpd_front_display">Cacher la banniere et le logo ?</label>
+            <label for="<?php echo $this->plugin_name; ?>-rgpd_front_display">Cacher la banniere ?</label>
             <em class="aky-gdpr-field-info">Attention cela peut-être illégal si vous devez proposer l'acceptation de cookies à vos clients.</em>
             <input type="checkbox" class="regular-text" id="<?php echo $this->plugin_name; ?>-rgpd_front_display" name="<?php echo $this->plugin_name; ?>[rgpd_front_display]" value="rgpd_front_display" <?php if(!empty($rgpd_front_display)) echo 'checked'; ?>/>
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-rgpd_front_logo_display">Cacher le logo ?</label>
+            <em class="aky-gdpr-field-info">Attention cela peut-être illégal si vous devez proposer l'acceptation de cookies à vos clients.</em>
+            <input type="checkbox" class="regular-text" id="<?php echo $this->plugin_name; ?>-rgpd_front_logo_display" name="<?php echo $this->plugin_name; ?>[rgpd_front_logo_display]" value="rgpd_front_logo_display" <?php if(!empty($rgpd_front_logo_display)) echo 'checked'; ?>/>
         </fieldset>
 
         <?php submit_button('Enregistrer', 'primary','submit', TRUE); ?>
