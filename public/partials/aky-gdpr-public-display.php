@@ -34,7 +34,7 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
     $onclick = 'javascript:window.Sddan.cmp.displayUI();';
 }
 
-if ($rgpd_front_logo_display) {
+if (!$rgpd_front_logo_display) {
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
