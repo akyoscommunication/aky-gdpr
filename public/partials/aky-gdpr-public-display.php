@@ -25,6 +25,7 @@ $rgpd_matomo_site_id = $options['rgpd_matomo_site_id'];
 $rgpd_matomo_url_tag = $options['rgpd_matomo_url_tag'];
 
 $rgpd_service_type = $options['rgpd_service_type'];
+$rgpd_front_logo_display = $options['rgpd_front_logo_display'];
 
 $onclick = null;
 if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
@@ -32,6 +33,8 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
 } elseif ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_SIRDATA) {
     $onclick = 'javascript:window.Sddan.cmp.displayUI();';
 }
+
+if (!$rgpd_front_logo_display) {
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
@@ -50,6 +53,7 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
 </div>
 
 <?php
+}
 
 if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
     if($rgpd_gta) {
