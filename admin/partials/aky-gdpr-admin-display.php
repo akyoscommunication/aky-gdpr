@@ -25,29 +25,29 @@
 	        $options = get_option($this->plugin_name);
 
 	        // Cleanup
-            $rgpd_custom_rgpd_page = $options['rgpd_custom_rgpd_page'];
-            $rgpd_custom_rgpd_link = $options['rgpd_custom_rgpd_link'];
+            $rgpd_custom_rgpd_page = $options['rgpd_custom_rgpd_page'] ?? false;
+            $rgpd_custom_rgpd_link = $options['rgpd_custom_rgpd_link'] ?? false;
 
-            $rgpd_title = $options['rgpd_title'];
-            $rgpd_mail = $options['rgpd_mail'];
-            $rgpd_address = $options['rgpd_address'];
-            $rgpd_contact = $options['rgpd_contact'];
-            $rgpd_gta = $options['rgpd_gta'];
-            $rgpd_youtube = $options['rgpd_youtube'];
-            $rgpd_pixelfb = $options['rgpd_pixelfb'];
-            $rgpd_id_client = $options['rgpd_id_client'];
-            $rgpd_front_logo = $options['rgpd_front_logo'];
-            $rgpd_front_logo_display = $options['rgpd_front_logo_display'];
-            $rgpd_front_display = $options['rgpd_front_display'];
+            $rgpd_title = $options['rgpd_title'] ?? false;
+            $rgpd_mail = $options['rgpd_mail'] ?? false;
+            $rgpd_address = $options['rgpd_address'] ?? false;
+            $rgpd_contact = $options['rgpd_contact'] ?? false;
+            $rgpd_gta = $options['rgpd_gta'] ?? false;
+            $rgpd_youtube = $options['rgpd_youtube'] ?? false;
+            $rgpd_pixelfb = $options['rgpd_pixelfb'] ?? false;
+            $rgpd_id_client = $options['rgpd_id_client'] ?? false;
+            $rgpd_front_logo = $options['rgpd_front_logo'] ?? false;
+            $rgpd_front_logo_display = $options['rgpd_front_logo_display'] ?? false;
+            $rgpd_front_display = $options['rgpd_front_display'] ?? false;
 
-            $rgpd_matomo_url = $options['rgpd_matomo_url'];
-            $rgpd_matomo_site_id = $options['rgpd_matomo_site_id'];
-            $rgpd_matomo_js_path = $options['rgpd_matomo_js_path'];
-            $rgpd_matomo_url_tag = $options['rgpd_matomo_url_tag'];
+            $rgpd_matomo_url = $options['rgpd_matomo_url'] ?? false;
+            $rgpd_matomo_site_id = $options['rgpd_matomo_site_id'] ?? false;
+            $rgpd_matomo_js_path = $options['rgpd_matomo_js_path'] ?? false;
+            $rgpd_matomo_url_tag = $options['rgpd_matomo_url_tag'] ?? false;
 
-            $rgpd_service_type = $options['rgpd_service_type'];
-            $sirdata_user = $options['sirdata_user'];
-            $sirdata_site = $options['sirdata_site'];
+            $rgpd_service_type = $options['rgpd_service_type'] ?? false;
+            $sirdata_user = $options['sirdata_user'] ?? false;
+            $sirdata_site = $options['sirdata_site'] ?? false;
 
         ?>
 

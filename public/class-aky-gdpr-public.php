@@ -190,4 +190,126 @@ class Aky_Gdpr_Public {
          include_once 'partials/aky-gdpr-public-display.php';
     }
 
+    public function woo_tracking_add_to_cart_btn_dataset_attrs($product)
+    {
+        $attrs = [];
+
+        // Récupérez les détails du produit
+        $product_id = $product->get_id();
+
+        // Récupérez les catégories à partir de la taxonomie "product_cat"
+        $categories = wp_get_post_terms($product_id, 'product_cat');
+        $product_categories = array();
+
+        foreach ($categories as $key => $category) {
+            $category_key = 'data-item-category' . ($key + 1);
+            $product_categories[$category_key] = $category->name;
+        }
+
+        // Récupérez le nom de la variante en cours
+        if ($product->is_type('variable')) {
+            $variation_attributes = $product->get_variation_attributes();
+            $product_variant = json_encode($variation_attributes, JSON_THROW_ON_ERROR);
+        } else {
+            $product_variant = ''; // Aucune variante pour les produits simples
+        }
+
+        // Ajoutez les attributs de données au tableau existant
+        foreach ($product_categories as $key => $value) {
+            $attrs[$key] = esc_attr($value);
+        }
+
+        $attrs['data-product-variant'] = esc_attr($product_variant);
+        $attrs['data-product-name'] = esc_attr($product->get_name());
+        $attrs['data-product-id'] = esc_attr($product_id);
+        $attrs['data-product-price'] = esc_attr($product->get_price());
+
+        return $attrs;
+    }
+
+    public function get_woo_tracking_dataset_attrs_inline($product)
+    {
+        $attrs = $this->woo_tracking_add_to_cart_btn_dataset_attrs($product);
+
+        return array_reduce(array_keys($attrs), static function ($carry, $key) use ($attrs) {
+            return $carry . ' ' . $key . '="' . $attrs[$key] . '"';
+        }, '');
+    }
+
+    public function woo_tracking_remove_to_cart_btn($link, $cart_item_key)
+    {
+        // Récupérez l'objet de panier WooCommerce
+        $cart = WC()->cart;
+
+        // Récupérez les détails de l'article de panier
+        $cart_item = $cart->get_cart_item($cart_item_key);
+
+        // Vérifiez si l'élément de panier est valide
+        if (isset($cart_item['data']) && $cart_item['data'] instanceof \WC_Product) {
+            $product = $cart_item['data'];
+
+            $attrs = $this->get_woo_tracking_dataset_attrs_inline($product);
+
+            $link = str_replace(['<a ', 'class="'], ['<a ' . $attrs . ' ', 'class="aky-gdpr-tracking-remove-from-cart '], $link);
+        }
+
+        return $link;
+    }
+
+    public function woo_tracking_add_to_cart_btn_dataset($links, $product)
+    {
+        $links['attributes'] = array_merge($links['attributes'], $this->woo_tracking_add_to_cart_btn_dataset_attrs($product));
+
+        return $links;
+    }
+
+    public function woo_tracking_product_list_dataset()
+    {
+        global $product;
+
+        // Vérifiez si c'est une instance de produit WooCommerce
+        if (is_a($product, 'WC_Product')) {
+            $attrs = $this->get_woo_tracking_dataset_attrs_inline($product);
+
+            echo <<<HTML
+    <div class="aky-gdpr-tracking-product" $attrs></div>
+HTML;
+        }
+    }
+
+    public function woo_tracking_page_view()
+    {
+        include_once 'Woocommerce/Tracking/page_view.php';
+    }
+
+    public function woo_tracking_add_to_cart()
+    {
+        include_once 'Woocommerce/Tracking/add_to_cart.php';
+    }
+
+    public function woo_tracking_begin_checkout()
+    {
+        include_once 'Woocommerce/Tracking/begin_checkout.php';
+    }
+
+    public function woo_tracking_checkout_progress()
+    {
+        include_once 'Woocommerce/Tracking/checkout_progress.php';
+    }
+
+    public function woo_tracking_purchase($order_id)
+    {
+        include_once 'Woocommerce/Tracking/purchase.php';
+    }
+
+    public function woo_tracking_select_item()
+    {
+        include_once 'Woocommerce/Tracking/select_item.php';
+    }
+
+    public function woo_tracking_remove_from_cart()
+    {
+        include_once 'Woocommerce/Tracking/remove_from_cart.php';
+    }
+
 }
