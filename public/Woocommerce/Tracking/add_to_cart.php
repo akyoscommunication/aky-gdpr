@@ -45,8 +45,6 @@ if (is_product()) {
         $('<?= $add_to_cart_btn_class ?>').on('click', function(e) {
             e.preventDefault();
 
-            console.log('gros caca puant');
-
             // Récupérez les informations du produit depuis les attributs de données
 	        const productData = $(this).data();
 
