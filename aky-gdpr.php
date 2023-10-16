@@ -15,7 +15,7 @@
  * Plugin Name:       GDPR by Akyos
  * Plugin URI:        https://github.com/jpa-akyos/aky-gdpr
  * Description:       Plugin d'Akyos Communication ( RGPD, suivi ... )
- * Version:           3.0.0
+ * Version:           2.1.3
  * Author:            Akyos Communication <developpement@akyos.com>
  * Author URI:        https://akyos.com
  * Text Domain:       aky-gdpr
@@ -33,7 +33,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 
-define( 'PLUGIN_NAME_VERSION', '3.0.0' );
+define( 'PLUGIN_NAME_VERSION', '2.1.3' );
 
 /**
  * The code that runs during plugin activation.

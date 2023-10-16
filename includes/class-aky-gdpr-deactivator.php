@@ -33,8 +33,11 @@ class Aky_Gdpr_Deactivator {
     {
         $pagedelete1 = get_page_by_path( 'politique-de-conservation-de-donnees' );
         $pagedelete2 = get_page_by_path( 'utilisation-des-cookies' );
-        wp_delete_post($pagedelete1->ID, true);
-        wp_delete_post($pagedelete2->ID, true);
+
+        if($pagedelete1 && $pagedelete2) {
+            wp_delete_post($pagedelete1->ID, true);
+            wp_delete_post($pagedelete2->ID, true);
+        }
     }
 
 }

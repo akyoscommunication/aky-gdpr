@@ -35,8 +35,8 @@ class Aky_Gdpr_Activator {
 
         global $wpdb;
 
-        if (!get_page_by_title('Politique de conservation de données') && !get_page_by_title('Utilisation des cookies')) {
-            include 'activations/aky-gdpr-pages.php';
+        if (!post_exists('Politique de conservation de données') && !post_exists('Utilisation des cookies')) {
+            //include 'activations/aky-gdpr-pages.php';
         }
     }
 

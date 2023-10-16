@@ -36,7 +36,7 @@ class Aky_Gdpr
      *
      * @since    1.0.0
      * @access   protected
-     * @var      Aky_Gdpr_Loader    $loader    Maintains and registers all hooks for the plugin.
+     * @var      Aky_Gdpr_Loader $loader Maintains and registers all hooks for the plugin.
      */
     protected $loader;
 
@@ -45,7 +45,7 @@ class Aky_Gdpr
      *
      * @since    1.0.0
      * @access   protected
-     * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+     * @var      string $plugin_name The string used to uniquely identify this plugin.
      */
     protected $plugin_name;
 
@@ -54,7 +54,7 @@ class Aky_Gdpr
      *
      * @since    1.0.0
      * @access   protected
-     * @var      string    $version    The current version of the plugin.
+     * @var      string $version The current version of the plugin.
      */
     protected $version;
 
@@ -76,10 +76,12 @@ class Aky_Gdpr
         }
         $this->plugin_name = 'aky-gdpr';
 
+
         $this->load_dependencies();
         $this->set_locale();
         $this->define_admin_hooks();
         $this->define_public_hooks();
+
     }
 
     /**
@@ -105,28 +107,27 @@ class Aky_Gdpr
          * The class responsible for orchestrating the actions and filters of the
          * core plugin.
          */
-        require_once plugin_dir_path(__DIR__) . 'includes/class-aky-gdpr-loader.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-aky-gdpr-loader.php';
 
         /**
          * The class responsible for defining internationalization functionality
          * of the plugin.
          */
-        require_once plugin_dir_path(__DIR__) . 'includes/class-aky-gdpr-i18n.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-aky-gdpr-i18n.php';
 
         /**
          * The class responsible for defining all actions that occur in the admin area.
          */
-        require_once plugin_dir_path(__DIR__) . 'admin/class-aky-gdpr-admin.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-aky-gdpr-admin.php';
 
         /**
          * The class responsible for defining all actions that occur in the public-facing
          * side of the site.
          */
-        require_once plugin_dir_path(__DIR__) . 'public/class-aky-gdpr-public.php';
-
-        require_once plugin_dir_path(__DIR__) . 'includes/Woocommerce.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-aky-gdpr-public.php';
 
         $this->loader = new Aky_Gdpr_Loader();
+
     }
 
     /**
@@ -144,6 +145,7 @@ class Aky_Gdpr
         $plugin_i18n = new Aky_Gdpr_i18n();
 
         $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
+
     }
 
     /**
@@ -171,6 +173,7 @@ class Aky_Gdpr
         $this->loader->add_filter('plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_action_links');
 
         $this->loader->add_action('admin_init', $plugin_admin, 'options_update');
+
     }
 
     /**
@@ -182,10 +185,6 @@ class Aky_Gdpr
      */
     private function define_public_hooks()
     {
-        global $aky_gdpr_options;
-
-        $aky_gdpr_options['aky_gdpr_settings'] = get_option($this->plugin_name);
-        $aky_gdpr_options["$this->plugin_name-woo_tracking"] = get_option("$this->plugin_name-woo_tracking");
 
         $plugin_public = new Aky_Gdpr_Public($this->get_plugin_name(), $this->get_version());
 
@@ -194,19 +193,6 @@ class Aky_Gdpr
 
         $this->loader->add_action('wp_footer', $plugin_public, 'display_plugin_setup_page');
 
-        if (!empty($aky_gdpr_options["$this->plugin_name-woo_tracking"]["woo_tracking_enabled"])) {
-            $this->loader->add_filter('woocommerce_loop_add_to_cart_args', $plugin_public, 'woo_tracking_add_to_cart_btn_dataset', 10, 2);
-            $this->loader->add_filter('woocommerce_cart_item_remove_link', $plugin_public, 'woo_tracking_remove_to_cart_btn', 10, 2);
-            $this->loader->add_action('woocommerce_before_shop_loop_item_title', $plugin_public, 'woo_tracking_product_list_dataset');
-
-            $this->loader->add_action('woocommerce_before_single_product', $plugin_public, 'woo_tracking_page_view');
-            $this->loader->add_action('wp_footer', $plugin_public, 'woo_tracking_add_to_cart', 999);
-            $this->loader->add_action('wp_footer', $plugin_public, 'woo_tracking_checkout_progress');
-            $this->loader->add_action('wp_footer', $plugin_public, 'woo_tracking_select_item');
-            $this->loader->add_action('wp_footer', $plugin_public, 'woo_tracking_remove_from_cart');
-            $this->loader->add_action('woocommerce_thankyou', $plugin_public, 'woo_tracking_purchase', 999);
-            $this->loader->add_action('woocommerce_before_cart', $plugin_public, 'woo_tracking_begin_checkout', 999);
-        }
     }
 
     /**
@@ -223,8 +209,8 @@ class Aky_Gdpr
      * The name of the plugin used to uniquely identify it within the context of
      * WordPress and to define internationalization functionality.
      *
-     * @since     1.0.0
      * @return    string    The name of the plugin.
+     * @since     1.0.0
      */
     public function get_plugin_name()
     {
@@ -234,8 +220,8 @@ class Aky_Gdpr
     /**
      * The reference to the class that orchestrates the hooks with the plugin.
      *
-     * @since     1.0.0
      * @return    Aky_Gdpr_Loader    Orchestrates the hooks of the plugin.
+     * @since     1.0.0
      */
     public function get_loader()
     {
@@ -245,11 +231,12 @@ class Aky_Gdpr
     /**
      * Retrieve the version number of the plugin.
      *
-     * @since     1.0.0
      * @return    string    The version number of the plugin.
+     * @since     1.0.0
      */
     public function get_version()
     {
         return $this->version;
     }
+
 }
