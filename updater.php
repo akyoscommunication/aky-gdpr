@@ -45,20 +45,25 @@ class Aky_Gdpr_Updater {
             // Switch to HTTP Basic Authentication for GitHub API v3
             $curl = curl_init();
 
-            curl_setopt_array($curl, [
+            $args = [
                 CURLOPT_URL => $request_uri,
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
+                CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
                 CURLOPT_TIMEOUT => 0,
                 CURLOPT_FOLLOWLOCATION => true,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "GET",
-                CURLOPT_HTTPHEADER => [
-                    "Authorization: token " . $this->authorize_token,
-                    "User-Agent: aky-gdpr"
-                ]
-            ]);
+                CURLOPT_CUSTOMREQUEST => 'GET',
+                CURLOPT_USERAGENT => $this->plugin["Name"],
+            ];
+
+            if ($this->authorize_token) {
+                $args[CURLOPT_HTTPHEADER] = [
+                    "Authorization: Bearer {$this->authorize_token}",
+                ];
+            }
+
+            curl_setopt_array($curl, $args);
 
             $response = curl_exec($curl);
 
