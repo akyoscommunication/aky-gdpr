@@ -107,6 +107,14 @@ class Aky_Gdpr_Public
             $options = get_option('aky-gdpr');
 
             $service_type = $options['rgpd_service_type'] ?? '';
+            $pageID = get_page_by_path(!empty($options['rgpd_custom_rgpd_link']) && (!empty($options['rgpd_custom_rgpd_page'])) ? $options['rgpd_custom_rgpd_link'] : '/politique-de-conservation-de-donnees');
+			$pagePrivacyByLang = null;
+
+			if (function_exists('pll_get_post')) {
+				$pagePrivacyByLang = get_permalink(pll_get_post($pageID->ID, get_locale()));
+			}
+
+			$privacy = $pagePrivacyByLang ?: (!empty($options['rgpd_custom_rgpd_link']) && (!empty($options['rgpd_custom_rgpd_page'])) ? $options['rgpd_custom_rgpd_link'] : '/politique-de-conservation-de-donnees');
 
             if ($service_type == Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
                 ?>
@@ -117,7 +125,7 @@ class Aky_Gdpr_Public
                     <?php } ?>
 
                     tarteaucitron.init({
-                        "privacyUrl": "<?php echo(!empty($options['rgpd_custom_rgpd_link']) && (!empty($options['rgpd_custom_rgpd_page'])) ? $options['rgpd_custom_rgpd_link'] : '/politique-de-conservation-de-donnees'); ?>", /* Privacy policy url */
+                        "privacyUrl": "<?php echo($privacy); ?>", /* Privacy policy url */
 
                         "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
                         "cookieName": "tartaucitron", /* Cookie name */
