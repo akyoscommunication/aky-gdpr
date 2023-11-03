@@ -54,7 +54,7 @@ class Aky_Gdpr_Updater {
                 CURLOPT_FOLLOWLOCATION => true,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => 'GET',
-                CURLOPT_USERAGENT => $this->plugin["Name"],
+                CURLOPT_USERAGENT => "aky-gdpr",
             ];
 
             if ($this->authorize_token) {
