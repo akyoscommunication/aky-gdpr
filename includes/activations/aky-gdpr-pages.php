@@ -4,11 +4,12 @@
 $options = get_option('aky-gdpr');
 
 // Cleanup
-$rgpd_title = get_bloginfo('name');
-$rgpd_mail = $options['rgpd_mail'];
-$rgpd_address = $options['rgpd_address'];
-$rgpd_contact = $options['contact'];
-$rgpd_gta = $options['rgpd_gta'];
+$rgpd_title = $options['rgpd_title'] ?? null;
+$rgpd_mail = $options['rgpd_mail'] ?? null;
+$rgpd_address = $options['rgpd_address'] ?? null;
+//        $rgpd_color_button = $options['rgpd_color_button'];
+$rgpd_contact = $options['contact'] ?? null;
+$rgpd_gta = $options['rgpd_gta'] ?? null;
 $linkpage = get_home_url().'/politique-de-conservation-de-donnees';
 $linkpagecookie = get_home_url().'/utilisation-des-cookies';
 
