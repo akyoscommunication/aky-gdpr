@@ -95,8 +95,7 @@ if ($rgpd_title && $rgpd_mail && $rgpd_address && $rgpd_contact) {
 	 	<li>adressant un email à notre délégué à la protection des données à l’adresse <a href="mailto:'.$rgpd_mail.'">'.$rgpd_mail.'</a></li>
 	 	<li>en remplissant ce <a href="'.$rgpd_contact.'">formulaire en ligne</a></li>
 	 	<li>ou en nous adressant un courrier à l’adresse suivante : '.$rgpd_title.' – A l’attention du Délégué à la Protection des Données – '.$rgpd_address.'</li>
-	</ul>
-	[/vc_column_text][/vc_column][/vc_row]',
+	</ul>',
             'post_author' => $current_user->ID,
             'post_type'   => 'page',
         );
@@ -104,7 +103,7 @@ if ($rgpd_title && $rgpd_mail && $rgpd_address && $rgpd_contact) {
         $page2 = array(
             'post_title'  => __( 'Utilisation des cookies' ),
             'post_status' => 'publish',
-            'post_content'  => '[vc_row][vc_column][vc_column_text]'.$rgpd_title.' (« nous », « nos » ou « notre ») utilise les cookies afin de vous proposer un service web amélioré et davantage personnalisé. À travers cette Charte d’utilisation des Cookies de '.$rgpd_title.', nous vous présentons comment et pourquoi nous utilisons des cookies sur ce site, en toute transparence.
+            'post_content'  => $rgpd_title.' (« nous », « nos » ou « notre ») utilise les cookies afin de vous proposer un service web amélioré et davantage personnalisé. À travers cette Charte d’utilisation des Cookies de '.$rgpd_title.', nous vous présentons comment et pourquoi nous utilisons des cookies sur ce site, en toute transparence.
 			      <p style="text-align: center;">&nbsp;</p>
 	<h2 class="title-primary">Qu’est-ce qu’un cookie et à quoi sert-il ?</h2>
 	Un cookie est un petit fichier texte enregistré, et/ou lu par votre navigateur, sur le disque dur de votre terminal (PC, ordinateur portable ou smartphone, par exemple) et déposé par les sites internet que vous visitez. Quasiment tous les sites utilisent des cookies pour bien fonctionner et optimiser leur ergonomie et leurs fonctionnalités. Les cookies rendent également les interactions avec les sites plus sécurisées et rapides, dans la mesure où ceux-ci peuvent se souvenir de vos préférences (telles que votre identifiant et votre langue) en renvoyant les informations qu’ils contiennent au site d’origine (cookie interne) ou à un autre site auquel ils appartiennent (cookie tiers), lorsque vous visitez à nouveau le site concerné à partir du même terminal. Selon leur fonction et le but de leur utilisation, les cookies sont classés parmi les catégories décrites ci-dessous et utilisées par '.$rgpd_title.' sur ce site :

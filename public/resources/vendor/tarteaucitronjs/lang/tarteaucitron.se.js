@@ -25,7 +25,7 @@ tarteaucitron.lang = {
     "deny": "Förneka",
     "noCookie": "Den här tjänsten använder inte cookie.",
     "useCookie": "Den här tjänsten kan installeras",
-    "useCookieCurrent": "Den här tjänsten har installerat",
+    "useCookieCurrent": "Den här tjänsten har installerats",
     "useNoCookie": "Den här tjänsten har inte installerat någon cookie.",
     "more": "Läs mer",
     "source": "Visa den officiella webbplatsen",
@@ -43,8 +43,8 @@ tarteaucitron.lang = {
     "icon": "Cookies",
 
     "fallback": "är ur funktion.",
-    "allowed": "tillåtet",
-    "disallowed": "nekad",
+    "allowed": "tillåten",
+    "disallowed": "tillåtet",
 
     "ads": {
         "title": "Annonsnätverk",
