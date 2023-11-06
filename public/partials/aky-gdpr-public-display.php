@@ -22,9 +22,10 @@ $rgpd_front_logo = $options['rgpd_front_logo'];
 
 $rgpd_matomo_url = $options['rgpd_matomo_url'];
 $rgpd_matomo_site_id = $options['rgpd_matomo_site_id'];
-$rgpd_matomo_tag = $options['rgpd_matomo_tag'];
+$rgpd_matomo_url_tag = $options['rgpd_matomo_url_tag'];
 
 $rgpd_service_type = $options['rgpd_service_type'];
+$rgpd_front_logo_display = $options['rgpd_front_logo_display'];
 
 $onclick = null;
 if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
@@ -32,6 +33,8 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
 } elseif ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_SIRDATA) {
     $onclick = 'javascript:window.Sddan.cmp.displayUI();';
 }
+
+if (!$rgpd_front_logo_display) {
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
@@ -50,6 +53,7 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
 </div>
 
 <?php
+}
 
 if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
     if($rgpd_gta) {
@@ -78,19 +82,24 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
     }
     if ($rgpd_matomo_url) {
         ?>
-        <script type="text/javascript" defer>tarteaucitron.user.matomoHost = '<?= $rgpd_tag_matomo_url ?>';</script>
+        <script type="text/javascript" defer>tarteaucitron.user.matomoHost = '<?= $rgpd_matomo_url ?>';</script>
         <?php
     }
     if ($rgpd_matomo_site_id) {
         ?>
         <script type="text/javascript" defer>
 		    tarteaucitron.user.matomoId = <?= $rgpd_matomo_site_id ?>;
-		    (tarteaucitron.job = tarteaucitron.job || []).push('matomo');
+		    (tarteaucitron.job = tarteaucitron.job || []).push('matomocloud');
         </script>
         <?php
     }
-    if ($rgpd_matomo_tag) {
-        echo $rgpd_matomo_tag;
+    if ($rgpd_matomo_url_tag) {
+        ?>
+        <script type="text/javascript">
+		    tarteaucitron.user.matomotmUrl = '<?= $rgpd_matomo_url_tag ?>';
+		    (tarteaucitron.job = tarteaucitron.job || []).push('matomotm');
+        </script>
+        <?php
     }
 }
 ?>
