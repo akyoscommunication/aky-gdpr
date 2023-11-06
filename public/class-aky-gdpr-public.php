@@ -104,6 +104,15 @@ class Aky_Gdpr_Public {
 
             $service_type = $options['rgpd_service_type'];
             $rgpd_front_display = $options['rgpd_front_display'];
+            $pageID = get_page_by_path(!empty($options['rgpd_custom_rgpd_link']) && (!empty($options['rgpd_custom_rgpd_page'])) ? $options['rgpd_custom_rgpd_link'] : '/politique-de-conservation-de-donnees'); 
+            $pagePrivacyByLang = null;
+            
+            if (function_exists('pll_get_post')) {
+				$pagePrivacyByLang = get_permalink(pll_get_post($pageID->ID, get_locale()));
+			}
+
+			$privacy = $pagePrivacyByLang ?: (!empty($options['rgpd_custom_rgpd_link']) && (!empty($options['rgpd_custom_rgpd_page'])) ? $options['rgpd_custom_rgpd_link'] : '/politique-de-conservation-de-donnees');
+
 
             if ($rgpd_front_display) {
             ?>
@@ -116,8 +125,13 @@ class Aky_Gdpr_Public {
             if ($service_type == Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
             ?>
             <script type="text/javascript" class="aky-gdpr-script" defer>
+
+                    <?php if(function_exists('pll_current_language')) { ?>
+                        window.tarteaucitronForceLanguage = '<?php echo pll_current_language() ?>';
+                    <?php } ?>
+                
                 tarteaucitron.init({
-                    "privacyUrl": "<?php echo (!empty($options['rgpd_custom_rgpd_link']) && (!empty($options['rgpd_custom_rgpd_page'])) ? $options['rgpd_custom_rgpd_link'] : '/politique-de-conservation-de-donnees' ); ?>", /* Privacy policy url */
+                    "privacyUrl": "<?php echo($privacy)  ?>", /* Privacy policy url */
 
                     "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
                     "cookieName": "tartaucitron", /* Cookie name */
