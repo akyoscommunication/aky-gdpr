@@ -178,7 +178,7 @@ class Aky_Gdpr_Admin
         $valid = array();
 
         //Cleanup
-        $valid['rgpd_custom_rgpd_page'] = $input['rgpd_custom_rgpd_page'];
+        $valid['rgpd_custom_rgpd_page'] = $input['rgpd_custom_rgpd_page'] ?? false;
         $valid['rgpd_custom_rgpd_link'] = $input['rgpd_custom_rgpd_link'];
 
         $valid['rgpd_title'] = $input['rgpd_title'];

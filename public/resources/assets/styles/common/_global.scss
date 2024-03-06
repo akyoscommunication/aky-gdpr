@@ -39,7 +39,8 @@
             padding: 4rem 5rem;
             margin: 5rem auto 0;
             background-color: $white;
-            width: 50%;
+            max-width: 1000px;
+            width: 100%;
             max-height: 85vh !important;
             overflow-y: scroll;
             position: relative;
@@ -91,6 +92,8 @@
                     > ul {
                         position: relative;
                         padding: 0;
+                        list-style-type: none;
+
                         > li {
                             > ul {
                                 > li {
@@ -120,6 +123,7 @@
                                     .tarteaucitronAsk {
                                         display: flex;
                                         flex-direction: column;
+                                        min-width: 200px;
                                     }
                                 }
                             }
@@ -164,10 +168,15 @@
             margin: 0 10px 10px 0;
             padding: .3rem 1rem;
             border: none;
+            cursor: pointer;
+            transition: ease .3s;
 
-            &:hover{
-                //color: inherit;
-                //background-color: transparent;
+            &:not([disabled]) {
+                &:hover,
+                &[aria-pressed="true"] {
+                    background-color: #000;
+                    color: $white;
+                }
             }
         }
         &DisclaimerAlert {
@@ -226,21 +235,10 @@
     }
 }
 
-@media screen and (max-width: 1024px) {
-    #tarteaucitronRoot{
-        #tarteaucitron {
-            #tarteaucitronServices {
-                width: 80%;
-            }
-        }
-    }
-}
-
 @media screen and (max-width: 768px) {
     #tarteaucitronRoot{
         #tarteaucitron {
             #tarteaucitronServices {
-                width: 100%;
                 padding: 4rem 2rem;
 
                 > .tarteaucitron {
@@ -251,6 +249,8 @@
                             }
                         }
                         > ul {
+                            list-style-type: none;
+
                             > li {
                                 > ul {
                                     padding: 0;
