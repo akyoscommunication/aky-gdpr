@@ -62,6 +62,7 @@
                 <option value="" disabled <?php if(empty($rgpd_service_type)) echo 'selected'; ?>>Selectionner votre service</option>
                 <option value="<?= Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON ?>" <?php if($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) echo 'selected'; ?>>TarteauCitron</option>
                 <option value="<?= Aky_Gdpr_Admin::SERVICE_SIRDATA ?>" <?php if($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_SIRDATA) echo 'selected'; ?>>SirData</option>
+                <option value="<?= Aky_Gdpr_Admin::SERVICE_MATOMO_NO_COOKIE ?>" <?php if($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_MATOMO_NO_COOKIE) echo 'selected'; ?>>Matomo no consent mode</option>
             </select>
 
             <div class="aky-gdpr-field-sub" id="<?= $this->plugin_name; ?>-service_sirdata">

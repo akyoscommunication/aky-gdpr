@@ -26,6 +26,8 @@ class Aky_Gdpr_Admin
     const SERVICE_TARTEAUCITRON = 'service_tarteaucitron';
     const SERVICE_SIRDATA = 'service_sirdata';
 
+    const SERVICE_MATOMO_NO_COOKIE = 'service_matomo_no_cookie';
+
     /**
      * The ID of this plugin.
      *
