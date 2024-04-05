@@ -61,6 +61,16 @@ if ($rgpd_service_type === Aky_Gdpr_Admin::SERVICE_TARTEAUCITRON) {
         <script type="text/javascript" defer>
             tarteaucitron.user.multiplegoogletagmanagerId = ['<?= implode("','", explode('|', $rgpd_gta)) ?>'];
             (tarteaucitron.job = tarteaucitron.job || []).push('multiplegoogletagmanager');
+
+			// ADS
+            (tarteaucitron.job = tarteaucitron.job || []).push('gcmadsuserdata');
+            (tarteaucitron.job = tarteaucitron.job || []).push('gcmadstorage');
+
+            // Analytics
+            (tarteaucitron.job = tarteaucitron.job || []).push('gcmanalyticsstorage');
+            (tarteaucitron.job = tarteaucitron.job || []).push('gcmpersonalization');
+            (tarteaucitron.job = tarteaucitron.job || []).push('gcmfunctionality');
+            (tarteaucitron.job = tarteaucitron.job || []).push('gcmsecurity');
         </script>
         <?php
     }
