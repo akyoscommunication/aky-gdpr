@@ -85,4 +85,4 @@ $updater = new Aky_Gdpr_Updater( __FILE__ );
 $updater->set_username( 'akyoscommunication' );
 $updater->set_repository( 'aky-gdpr' );
 //$updater->authorize( '71135cb1a5125b2b9d698d9670d380aab4c3c3bc' ); // auth code goes here for private repos
-$updater->initialize();
+//$updater->initialize();
