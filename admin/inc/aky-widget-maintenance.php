@@ -32,7 +32,7 @@ function custom_dashboard_help() {
             <div class="progress">
                 <div class="progress-bar progress-bar-<?= $status ?>" role="progressbar" aria-valuenow="100"
                      aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                    <?php echo $obj->remaining_hours; ?> heure(s) <?php echo $obj->remaining_minutes; ?> minute(s) restante(s)
+                    <?php echo $obj->remaining_time; ?>  restante(s)
                 </div>
             </div>
             <?php } else { ?>
