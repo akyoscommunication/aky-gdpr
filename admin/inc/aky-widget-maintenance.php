@@ -40,7 +40,7 @@ function custom_dashboard_help() {
             <?php } ?>
         </div>
         <div class="footer">
-            <p>Si vous avez un problème, besoin d'aide ou toute autres demandes vous pouvez nous contacter par mail (info@akyos.com) ou au 03 80 10 23 57.</p>
+            <p>Si vous avez un problème, besoin d'aide ou pour toute autre demande, vous pouvez utiliser notre <a href="https://support.akyos.com" target="_blank">formulaire de support</a>, nous contacter par mail (<a href="mailto:info@akyos.com">info@akyos.com</a>) ou encore par téléphone au 03 80 10 23 57.</p>
             <p>
                 Cordialement, L'équipe Akyos.
             </p>
