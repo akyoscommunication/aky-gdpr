@@ -8,8 +8,18 @@ $rgpd_title = $options['rgpd_title'] ?? null;
 $rgpd_mail = $options['rgpd_mail'] ?? null;
 $rgpd_address = $options['rgpd_address'] ?? null;
 //        $rgpd_color_button = $options['rgpd_color_button'];
-$rgpd_contact = $options['contact'] ?? null;
+$rgpd_contact = $options['rgpd_contact'] ?? null;
 $rgpd_gta = $options['rgpd_gta'] ?? null;
+$rgpd_legal_company_name = $options['rgpd_legal_company_name'] ?? null;
+$rgpd_legal_legal_form = $options['rgpd_legal_legal_form'] ?? null;
+$rgpd_legal_capital = $options['rgpd_legal_capital'] ?? null;
+$rgpd_legal_rcs = $options['rgpd_legal_rcs'] ?? null;
+$rgpd_legal_siret = $options['rgpd_legal_siret'] ?? null;
+$rgpd_legal_tva = $options['rgpd_legal_tva'] ?? null;
+$rgpd_legal_publication_director = $options['rgpd_legal_publication_director'] ?? null;
+$rgpd_legal_host_name = $options['rgpd_legal_host_name'] ?? null;
+$rgpd_legal_host_address = $options['rgpd_legal_host_address'] ?? null;
+$rgpd_legal_host_phone = $options['rgpd_legal_host_phone'] ?? null;
 $linkpage = get_home_url().'/politique-de-conservation-de-donnees';
 $linkpagecookie = get_home_url().'/utilisation-des-cookies';
 
@@ -23,8 +33,7 @@ if ($rgpd_title && $rgpd_mail && $rgpd_address && $rgpd_contact) {
         $page1 = array(
             'post_title'  => __( 'Politique de conservation de données' ),
             'post_status' => 'publish',
-            'post_content'  => '
-			      <p style="text-align: center;">&nbsp;</p>
+            'post_content'  => '<p style="text-align: center;">&nbsp;</p>
 	<h2 class="title-primary">1. Généralités</h2>
 	'.$rgpd_title.' ('.$rgpd_address.'), en sa qualité de responsable du traitement, attache une grande importance à la protection et au respect de votre vie privée. La présente politique vise à vous informer de nos pratiques concernant la collecte, l’utilisation et le partage des informations que vous êtes amenés à nous fournir par le biais de notre site internet (le « Site »). '.$rgpd_title.' sera désignée par la suite en tant que « '.$rgpd_title.' », « nous » ou « notre ».
 
@@ -95,8 +104,7 @@ if ($rgpd_title && $rgpd_mail && $rgpd_address && $rgpd_contact) {
 	 	<li>adressant un email à notre délégué à la protection des données à l’adresse <a href="mailto:'.$rgpd_mail.'">'.$rgpd_mail.'</a></li>
 	 	<li>en remplissant ce <a href="'.$rgpd_contact.'">formulaire en ligne</a></li>
 	 	<li>ou en nous adressant un courrier à l’adresse suivante : '.$rgpd_title.' – A l’attention du Délégué à la Protection des Données – '.$rgpd_address.'</li>
-	</ul>
-	[/vc_column_text][/vc_column][/vc_row]',
+	</ul>',
             'post_author' => $current_user->ID,
             'post_type'   => 'page',
         );
@@ -104,7 +112,7 @@ if ($rgpd_title && $rgpd_mail && $rgpd_address && $rgpd_contact) {
         $page2 = array(
             'post_title'  => __( 'Utilisation des cookies' ),
             'post_status' => 'publish',
-            'post_content'  => '[vc_row][vc_column][vc_column_text]'.$rgpd_title.' (« nous », « nos » ou « notre ») utilise les cookies afin de vous proposer un service web amélioré et davantage personnalisé. À travers cette Charte d’utilisation des Cookies de '.$rgpd_title.', nous vous présentons comment et pourquoi nous utilisons des cookies sur ce site, en toute transparence.
+            'post_content'  => $rgpd_title.' (« nous », « nos » ou « notre ») utilise les cookies afin de vous proposer un service web amélioré et davantage personnalisé. À travers cette Charte d’utilisation des Cookies de '.$rgpd_title.', nous vous présentons comment et pourquoi nous utilisons des cookies sur ce site, en toute transparence.
 			      <p style="text-align: center;">&nbsp;</p>
 	<h2 class="title-primary">Qu’est-ce qu’un cookie et à quoi sert-il ?</h2>
 	Un cookie est un petit fichier texte enregistré, et/ou lu par votre navigateur, sur le disque dur de votre terminal (PC, ordinateur portable ou smartphone, par exemple) et déposé par les sites internet que vous visitez. Quasiment tous les sites utilisent des cookies pour bien fonctionner et optimiser leur ergonomie et leurs fonctionnalités. Les cookies rendent également les interactions avec les sites plus sécurisées et rapides, dans la mesure où ceux-ci peuvent se souvenir de vos préférences (telles que votre identifiant et votre langue) en renvoyant les informations qu’ils contiennent au site d’origine (cookie interne) ou à un autre site auquel ils appartiennent (cookie tiers), lorsque vous visitez à nouveau le site concerné à partir du même terminal. Selon leur fonction et le but de leur utilisation, les cookies sont classés parmi les catégories décrites ci-dessous et utilisées par '.$rgpd_title.' sur ce site :
@@ -146,8 +154,36 @@ if ($rgpd_title && $rgpd_mail && $rgpd_address && $rgpd_contact) {
             'post_type'   => 'page',
         );
 
+        $page3 = array(
+            'post_title'  => __( 'Mentions légales' ),
+            'post_status' => 'publish',
+            'post_content'  => '<h2 class="title-primary">Éditeur du site</h2>
+<ul>
+    <li><strong>Nom du site :</strong> '.$rgpd_title.'</li>
+    <li><strong>Raison sociale :</strong> '.$rgpd_legal_company_name.'</li>
+    <li><strong>Forme juridique :</strong> '.$rgpd_legal_legal_form.'</li>
+    <li><strong>Capital social :</strong> '.$rgpd_legal_capital.'</li>
+    <li><strong>Adresse :</strong> '.$rgpd_address.'</li>
+    <li><strong>E-mail :</strong> <a href="mailto:'.$rgpd_mail.'">'.$rgpd_mail.'</a></li>
+    <li><strong>Contact :</strong> <a href="'.$rgpd_contact.'">'.$rgpd_contact.'</a></li>
+    <li><strong>RCS :</strong> '.$rgpd_legal_rcs.'</li>
+    <li><strong>SIRET :</strong> '.$rgpd_legal_siret.'</li>
+    <li><strong>TVA intracommunautaire :</strong> '.$rgpd_legal_tva.'</li>
+    <li><strong>Directeur de la publication :</strong> '.$rgpd_legal_publication_director.'</li>
+</ul>
+<h2 class="title-primary">Hébergement</h2>
+<ul>
+    <li><strong>Hébergeur :</strong> '.$rgpd_legal_host_name.'</li>
+    <li><strong>Adresse :</strong> '.$rgpd_legal_host_address.'</li>
+    <li><strong>Téléphone :</strong> '.$rgpd_legal_host_phone.'</li>
+</ul>',
+            'post_author' => $current_user->ID,
+            'post_type'   => 'page',
+        );
+
         // insert the post into the database
         wp_insert_post( $page1 );
         wp_insert_post( $page2 );
+        wp_insert_post( $page3 );
     }
 }

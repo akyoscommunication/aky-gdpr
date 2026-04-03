@@ -2,10 +2,18 @@
 
 $pagedelete1 = get_page_by_path( 'politique-de-conservation-de-donnees' );
 $pagedelete2 = get_page_by_path( 'utilisation-des-cookies' );
+$pagedelete3 = get_page_by_path( 'mentions-legales' );
 
-if ($pagedelete1 != null && $pagedelete2 != null) {
+if ($pagedelete1 != null) {
     wp_delete_post($pagedelete1->ID, true);
+}
+
+if ($pagedelete2 != null) {
     wp_delete_post($pagedelete2->ID, true);
+}
+
+if ($pagedelete3 != null) {
+    wp_delete_post($pagedelete3->ID, true);
 }
 
 if ( ! current_user_can( 'activate_plugins' ) ) return;
@@ -21,6 +29,16 @@ $rgpd_mail = $input['rgpd_mail'];
 $rgpd_address = $input['rgpd_address'];
 $rgpd_contact = $input['rgpd_contact'];
 $rgpd_gta = $input['rgpd_gta'];
+$rgpd_legal_company_name = $input['rgpd_legal_company_name'] ?? '';
+$rgpd_legal_legal_form = $input['rgpd_legal_legal_form'] ?? '';
+$rgpd_legal_capital = $input['rgpd_legal_capital'] ?? '';
+$rgpd_legal_rcs = $input['rgpd_legal_rcs'] ?? '';
+$rgpd_legal_siret = $input['rgpd_legal_siret'] ?? '';
+$rgpd_legal_tva = $input['rgpd_legal_tva'] ?? '';
+$rgpd_legal_publication_director = $input['rgpd_legal_publication_director'] ?? '';
+$rgpd_legal_host_name = $input['rgpd_legal_host_name'] ?? '';
+$rgpd_legal_host_address = $input['rgpd_legal_host_address'] ?? '';
+$rgpd_legal_host_phone = $input['rgpd_legal_host_phone'] ?? '';
 $linkpage = get_home_url().'/politique-de-conservation-de-donnees';
 $linkpagecookie = get_home_url().'/utilisation-des-cookies';
 
@@ -155,9 +173,37 @@ Si vous avez des questions concernant la Charte sur les Cookies de '.$rgpd_title
         'post_type'   => 'page',
     );
 
+    $page3 = array(
+        'post_title'  => __( 'Mentions légales' ),
+        'post_status' => 'publish',
+        'post_content'  => '<h2 class="title-primary">Éditeur du site</h2>
+<ul>
+    <li><strong>Nom du site :</strong> '.$rgpd_title.'</li>
+    <li><strong>Raison sociale :</strong> '.$rgpd_legal_company_name.'</li>
+    <li><strong>Forme juridique :</strong> '.$rgpd_legal_legal_form.'</li>
+    <li><strong>Capital social :</strong> '.$rgpd_legal_capital.'</li>
+    <li><strong>Adresse :</strong> '.$rgpd_address.'</li>
+    <li><strong>E-mail :</strong> <a href="mailto:'.$rgpd_mail.'">'.$rgpd_mail.'</a></li>
+    <li><strong>Contact :</strong> <a href="'.$rgpd_contact.'">'.$rgpd_contact.'</a></li>
+    <li><strong>RCS :</strong> '.$rgpd_legal_rcs.'</li>
+    <li><strong>SIRET :</strong> '.$rgpd_legal_siret.'</li>
+    <li><strong>TVA intracommunautaire :</strong> '.$rgpd_legal_tva.'</li>
+    <li><strong>Directeur de la publication :</strong> '.$rgpd_legal_publication_director.'</li>
+</ul>
+<h2 class="title-primary">Hébergement</h2>
+<ul>
+    <li><strong>Hébergeur :</strong> '.$rgpd_legal_host_name.'</li>
+    <li><strong>Adresse :</strong> '.$rgpd_legal_host_address.'</li>
+    <li><strong>Téléphone :</strong> '.$rgpd_legal_host_phone.'</li>
+</ul>',
+        'post_author' => $current_user->ID,
+        'post_type'   => 'page',
+    );
+
     // insert the post into the database
     wp_insert_post( $page1 );
     wp_insert_post( $page2 );
+    wp_insert_post( $page3 );
 
 }
 

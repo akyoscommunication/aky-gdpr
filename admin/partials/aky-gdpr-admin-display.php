@@ -18,6 +18,41 @@
 
     <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
 
+    <div class="notice notice-info" style="padding: 12px 16px;">
+        <h3 style="margin-top: 8px;">📋 Checklist mise en conformité RGPD</h3>
+        <ol style="margin-left: 20px; line-height: 1.8;">
+            <li>
+                <strong>Bannière de cookies</strong> — À activer systématiquement, même sans outil de suivi.
+                Nos bannières permettent déjà aux utilisateurs de refuser les cookies tout en accédant librement au site.
+            </li>
+            <li>
+                <strong>3 pages obligatoires à créer</strong> (générées automatiquement via ce plugin) :
+                <ul style="margin-left: 20px; list-style: disc;">
+                    <li>Politique de confidentialité</li>
+                    <li>Utilisation des cookies</li>
+                    <li>Mentions légales</li>
+                </ul>
+                Les informations de la société sont disponibles sur <a href="https://www.societe.com/" target="_blank" rel="noopener">societe.com</a>.
+                Les modèles de textes légaux sont disponibles sur
+                <a href="https://drive.google.com/drive/folders/1IJIUgbtvtkacqGc8FtotCpcSOrVgtGZ9?usp=sharing" target="_blank" rel="noopener">Google Drive – TEXTES LEGAUX</a>.
+            </li>
+            <li>
+                <strong>Formulaires de contact</strong> — Chaque formulaire doit comporter une case à cocher RGPD avec le texte suivant :<br>
+                <em style="display: inline-block; margin-top: 4px; padding: 6px 10px; background: #f0f0f0; border-left: 3px solid #007cba;">
+                    « J'accepte que mes données personnelles soient réutilisées par <strong>[Nom de la société]</strong> à des fins d'information. »
+                </em>
+            </li>
+        </ol>
+    </div>
+
+    <div class="notice notice-warning" style="padding: 12px 16px;">
+        <p>
+            <strong>⚠️ Site e-commerce ?</strong>
+            Une page <strong>Conditions générales de vente (CGV)</strong> est également obligatoire.
+            Son contenu est propre à chaque entreprise et doit être fourni par le client — aucun modèle disponible.
+        </p>
+    </div>
+
     <form method="post" name="rgpd_options" id="rgpd_options" action="options.php">
 
 		<?php
@@ -39,6 +74,16 @@
             $rgpd_front_logo = $options['rgpd_front_logo'] ?? false;
             $rgpd_front_logo_display = $options['rgpd_front_logo_display'] ?? false;
             $rgpd_front_display = $options['rgpd_front_display'] ?? false;
+            $rgpd_legal_company_name = $options['rgpd_legal_company_name'] ?? false;
+            $rgpd_legal_legal_form = $options['rgpd_legal_legal_form'] ?? false;
+            $rgpd_legal_capital = $options['rgpd_legal_capital'] ?? false;
+            $rgpd_legal_rcs = $options['rgpd_legal_rcs'] ?? false;
+            $rgpd_legal_siret = $options['rgpd_legal_siret'] ?? false;
+            $rgpd_legal_tva = $options['rgpd_legal_tva'] ?? false;
+            $rgpd_legal_publication_director = $options['rgpd_legal_publication_director'] ?? false;
+            $rgpd_legal_host_name = $options['rgpd_legal_host_name'] ?? false;
+            $rgpd_legal_host_address = $options['rgpd_legal_host_address'] ?? false;
+            $rgpd_legal_host_phone = $options['rgpd_legal_host_phone'] ?? false;
 
             $rgpd_matomo_url = $options['rgpd_matomo_url'] ?? false;
             $rgpd_matomo_site_id = $options['rgpd_matomo_site_id'] ?? false;
@@ -107,6 +152,61 @@
         <fieldset class="aky-gdpr-field">
             <label for="<?php echo $this->plugin_name; ?>-contact">Lien de la page contact</label>
             <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-contact" name="<?php echo $this->plugin_name; ?>[rgpd_contact]" value="<?php if(!empty($rgpd_contact)) echo $rgpd_contact; ?>" required/>
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <h3>Mentions légales (génération automatique)</h3>
+            <em class="aky-gdpr-field-info">Ces champs alimentent la page "Mentions légales" générée automatiquement.</em>
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-legal-company-name">Raison sociale</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-legal-company-name" name="<?php echo $this->plugin_name; ?>[rgpd_legal_company_name]" value="<?php if(!empty($rgpd_legal_company_name)) echo $rgpd_legal_company_name; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-legal-form">Forme juridique</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-legal-form" name="<?php echo $this->plugin_name; ?>[rgpd_legal_legal_form]" value="<?php if(!empty($rgpd_legal_legal_form)) echo $rgpd_legal_legal_form; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-legal-capital">Capital social</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-legal-capital" name="<?php echo $this->plugin_name; ?>[rgpd_legal_capital]" value="<?php if(!empty($rgpd_legal_capital)) echo $rgpd_legal_capital; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-legal-rcs">RCS</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-legal-rcs" name="<?php echo $this->plugin_name; ?>[rgpd_legal_rcs]" value="<?php if(!empty($rgpd_legal_rcs)) echo $rgpd_legal_rcs; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-legal-siret">SIRET</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-legal-siret" name="<?php echo $this->plugin_name; ?>[rgpd_legal_siret]" value="<?php if(!empty($rgpd_legal_siret)) echo $rgpd_legal_siret; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-legal-tva">TVA intracommunautaire</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-legal-tva" name="<?php echo $this->plugin_name; ?>[rgpd_legal_tva]" value="<?php if(!empty($rgpd_legal_tva)) echo $rgpd_legal_tva; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-legal-publication-director">Directeur de la publication</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-legal-publication-director" name="<?php echo $this->plugin_name; ?>[rgpd_legal_publication_director]" value="<?php if(!empty($rgpd_legal_publication_director)) echo $rgpd_legal_publication_director; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-legal-host-name">Hébergeur - Nom</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-legal-host-name" name="<?php echo $this->plugin_name; ?>[rgpd_legal_host_name]" value="<?php if(!empty($rgpd_legal_host_name)) echo $rgpd_legal_host_name; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-legal-host-address">Hébergeur - Adresse</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-legal-host-address" name="<?php echo $this->plugin_name; ?>[rgpd_legal_host_address]" value="<?php if(!empty($rgpd_legal_host_address)) echo $rgpd_legal_host_address; ?>" />
+        </fieldset>
+
+        <fieldset class="aky-gdpr-field">
+            <label for="<?php echo $this->plugin_name; ?>-legal-host-phone">Hébergeur - Téléphone</label>
+            <input type="text" class="regular-text" id="<?php echo $this->plugin_name; ?>-legal-host-phone" name="<?php echo $this->plugin_name; ?>[rgpd_legal_host_phone]" value="<?php if(!empty($rgpd_legal_host_phone)) echo $rgpd_legal_host_phone; ?>" />
         </fieldset>
 
         <fieldset class="aky-gdpr-field">

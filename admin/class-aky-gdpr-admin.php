@@ -181,28 +181,39 @@ class Aky_Gdpr_Admin
 
         //Cleanup
         $valid['rgpd_custom_rgpd_page'] = $input['rgpd_custom_rgpd_page'] ?? false;
-        $valid['rgpd_custom_rgpd_link'] = $input['rgpd_custom_rgpd_link'];
+        $valid['rgpd_custom_rgpd_link'] = $input['rgpd_custom_rgpd_link'] ?? '';
 
-        $valid['rgpd_title'] = $input['rgpd_title'];
-        $valid['rgpd_mail'] = $input['rgpd_mail'];
-        $valid['rgpd_address'] = $input['rgpd_address'];
-        $valid['rgpd_contact'] = $input['rgpd_contact'];
-        $valid['rgpd_gta'] = $input['rgpd_gta'];
-        $valid['rgpd_pixelfb'] = $input['rgpd_pixelfb'];
+        $valid['rgpd_title'] = $input['rgpd_title'] ?? '';
+        $valid['rgpd_mail'] = $input['rgpd_mail'] ?? '';
+        $valid['rgpd_address'] = $input['rgpd_address'] ?? '';
+        $valid['rgpd_contact'] = $input['rgpd_contact'] ?? '';
+        $valid['rgpd_gta'] = $input['rgpd_gta'] ?? '';
+        $valid['rgpd_pixelfb'] = $input['rgpd_pixelfb'] ?? '';
         $valid['rgpd_youtube'] = $input['rgpd_youtube'] ?? false;
-        $valid['rgpd_id_client'] = $input['rgpd_id_client'];
-        $valid['rgpd_front_logo'] = $input['rgpd_front_logo'];
+        $valid['rgpd_id_client'] = $input['rgpd_id_client'] ?? '';
+        $valid['rgpd_front_logo'] = $input['rgpd_front_logo'] ?? '';
         $valid['rgpd_front_logo_display'] = $input['rgpd_front_logo_display'] ?? false;
         $valid['rgpd_front_display'] = $input['rgpd_front_display'] ?? false;
 
-        $valid['rgpd_matomo_url'] = $input['rgpd_matomo_url'];
-        $valid['rgpd_matomo_js_path'] = $input['rgpd_matomo_js_path'];
-        $valid['rgpd_matomo_site_id'] = $input['rgpd_matomo_site_id'];
-        $valid['rgpd_matomo_url_tag'] = $input['rgpd_matomo_url_tag'];
+        $valid['rgpd_matomo_url'] = $input['rgpd_matomo_url'] ?? '';
+        $valid['rgpd_matomo_js_path'] = $input['rgpd_matomo_js_path'] ?? '';
+        $valid['rgpd_matomo_site_id'] = $input['rgpd_matomo_site_id'] ?? '';
+        $valid['rgpd_matomo_url_tag'] = $input['rgpd_matomo_url_tag'] ?? '';
 
-        $valid['rgpd_service_type'] = $input['rgpd_service_type'];
-        $valid['sirdata_user'] = $input['sirdata_user'];
-        $valid['sirdata_site'] = $input['sirdata_site'];
+        $valid['rgpd_service_type'] = $input['rgpd_service_type'] ?? '';
+        $valid['sirdata_user'] = $input['sirdata_user'] ?? '';
+        $valid['sirdata_site'] = $input['sirdata_site'] ?? '';
+
+        $valid['rgpd_legal_company_name'] = $input['rgpd_legal_company_name'] ?? '';
+        $valid['rgpd_legal_legal_form'] = $input['rgpd_legal_legal_form'] ?? '';
+        $valid['rgpd_legal_capital'] = $input['rgpd_legal_capital'] ?? '';
+        $valid['rgpd_legal_rcs'] = $input['rgpd_legal_rcs'] ?? '';
+        $valid['rgpd_legal_siret'] = $input['rgpd_legal_siret'] ?? '';
+        $valid['rgpd_legal_tva'] = $input['rgpd_legal_tva'] ?? '';
+        $valid['rgpd_legal_publication_director'] = $input['rgpd_legal_publication_director'] ?? '';
+        $valid['rgpd_legal_host_name'] = $input['rgpd_legal_host_name'] ?? '';
+        $valid['rgpd_legal_host_address'] = $input['rgpd_legal_host_address'] ?? '';
+        $valid['rgpd_legal_host_phone'] = $input['rgpd_legal_host_phone'] ?? '';
 
         if (empty($valid['rgpd_custom_rgpd_page'])) {
             include_once 'inc/aky-gdpr-pages.php';
